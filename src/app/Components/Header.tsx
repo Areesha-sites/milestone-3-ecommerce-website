@@ -4,7 +4,7 @@ import { BsFillSendFill } from "react-icons/bs";
 
 const Header = () => {
   return (
-    <header className="w-full bg-black text-white px-7 py-2 fixed top-0 z-20">
+    <header className="w-full bg-black text-white px-7 py-4 fixed top-0 z-20">
       <div className="flex xl:justify-between justify-center xl:flex-row flex-col items-center">
         <p className="flex text-[14px] opacity-70">
           <MdCall className="mr-2 mt-1 text-btnBackground" /> +1235 2355 98

@@ -37,7 +37,10 @@ const MenuCard = ({
   return (
     <>
       <div className="">
-        <div className="relative w-full max-w-xs overflow-hidden rounded-[20px] shadow-md card-bg">
+        <div
+         data-aos="fade-up"
+              data-aos-delay="200"
+        className="relative w-full md:max-w-xs max-w-[270px] mx-auto overflow-hidden rounded-[20px] shadow-md card-bg">
           <div
             className="w-[35px] h-[35px] wishlist-bg rounded-full flex justify-center items-center absolute right-[10px] top-[10px]"
             onClick={

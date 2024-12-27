@@ -1,27 +1,59 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { RiQuestionMark } from "react-icons/ri";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Faqs = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease",
+      once: true,
+      anchorPlacement: "top-bottom",
+    });
+  }, []);
   return (
     <>
       <section className="bg-black w-full h-auto py-44 md:pt-52 lg:pt-48 pt-40 md:px-14 px-5 text-white  ">
         <div className="flex justify-center items-center flex-col gap-y-5 relative  left-0 ">
-          <span className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center">
+          <span
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center"
+          >
             Your Question, Answered
           </span>
-          <h1 className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center">
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
+          >
             Your questions,{" "}
             <span className="text-btnBackground">answered.</span>
           </h1>
-          <div className="border-b-[4px] w-[100px] border-btnBackground"></div>
-          <p className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full ">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="border-b-[4px] w-[100px] border-btnBackground"
+          ></div>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
+          >
             Have a question about Chow Champs? Check out our most frequently
             asked questions below. Can not find what you are looking for? Feel
             free to reach out through our Contact page!
           </p>
         </div>
         <div className="relative top-[-30px] xl:left-[50px] md:left-[30px] xl:top-0 mx-auto xl:w-[1000px]">
-          <div className="px-3 sm:px-1 xsm:px-1 sm:flex flex-col md:flex-row items-start mt-20 mb-10 ">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="px-3 sm:px-1 xsm:px-1 sm:flex flex-col md:flex-row items-start mt-20 mb-10 "
+          >
             <h3 className="py-3 font-bold text-lg text-btnBackground xl:w-[10%] md:w-[20%] font-roboto">
               Orders
             </h3>
@@ -57,7 +89,11 @@ const Faqs = () => {
               </div>
             </div>
           </div>
-          <div className="px-3 sm:px-1 xsm:px-1 flex-col md:flex-row sm:flex items-start mb-10">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="px-3 sm:px-1 xsm:px-1 flex-col md:flex-row sm:flex items-start mb-10"
+          >
             <h3 className="py-3 font-bold text-lg text-btnBackground xl:w-[10%] md:w-[20%] font-roboto">
               Delivery
             </h3>
@@ -91,7 +127,11 @@ const Faqs = () => {
               </div>
             </div>
           </div>
-          <div className="px-3 sm:px-1 xsm:px-1 sm:flex flex-col md:flex-row items-start mb-10">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="px-3 sm:px-1 xsm:px-1 sm:flex flex-col md:flex-row items-start mb-10"
+          >
             <h3 className="py-3 font-bold text-lg text-btnBackground xl:w-[10%] md:w-[20%] font-roboto whitespace-nowrap md:whitespace-normal  ">
               Menu and Ingredients
             </h3>
@@ -126,7 +166,11 @@ const Faqs = () => {
               </div>
             </div>
           </div>
-          <div className="px-3 sm:px-1 sm:flex xsm:px-1 flex-col md:flex-row items-start mb-10">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="px-3 sm:px-1 sm:flex xsm:px-1 flex-col md:flex-row items-start mb-10"
+          >
             <h3 className="py-3 font-bold text-lg text-btnBackground xl:w-[10%] md:w-[20%] font-roboto">
               Payments
             </h3>
@@ -162,7 +206,11 @@ const Faqs = () => {
               </div>
             </div>
           </div>
-          <div className="px-3 sm:px-1 sm:flex xsm:px-1 flex-col md:flex-row items-start mb-10">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="px-3 sm:px-1 sm:flex xsm:px-1 flex-col md:flex-row items-start mb-10"
+          >
             <h3 className="py-3 font-bold text-lg text-btnBackground xl:w-[10%] md:w-[20%] font-roboto whitespace-nowrap xl:whitespace-normal md:whitespace-normal">
               General Questions
             </h3>
@@ -199,7 +247,11 @@ const Faqs = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center gap-[10px] relative top-[-40px]">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="flex justify-center items-center gap-[10px] relative top-[-40px]"
+        >
           <p className="text-[14px] text-white/50 font-roboto font-normal">
             Still have questions?
           </p>

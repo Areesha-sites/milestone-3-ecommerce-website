@@ -2,7 +2,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { MdDone } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const TrackMyOrder = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease",
+      once: true,
+      anchorPlacement: "top-bottom",
+    });
+  }, []);
   const [showPopup, setShowPopup] = useState(false);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const orderDetails = {
@@ -15,20 +26,40 @@ const TrackMyOrder = () => {
     <>
       <section className="bg-black w-full h-auto py-44 md:pt-52 lg:pt-48 pt-40 md:px-14 px-5 text-white">
         <div className="flex justify-center items-center flex-col gap-y-5">
-          <span className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center">
+          <span
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center"
+          >
             Track Your Delicious Journey!
           </span>
-          <h1 className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center">
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
+          >
             track your <span className="text-btnBackground">order</span>
           </h1>
-          <div className="border-b-[4px] w-[100px] border-btnBackground"></div>
-          <p className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full ">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="border-b-[4px] w-[100px] border-btnBackground"
+          ></div>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
+          >
             Enter your Order ID or Email below to check the real-time status of
             your order.
           </p>
         </div>
         <div className="bg-black text-btnBackground relative top-[40px] flex flex-col items-center justify-center md:px-6">
-          <div className="bg-gray-800 p-6 rounded-md w-full md:max-w-[500px] shadow-lg">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="bg-gray-800 p-6 rounded-md w-full md:max-w-[500px] shadow-lg"
+          >
             <form
               className="space-y-4"
               onSubmit={(e) => {
@@ -36,7 +67,7 @@ const TrackMyOrder = () => {
                 setShowPopup(true);
               }}
             >
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <label
                   htmlFor="order-id"
                   className="block text-[15px] mb-1 font-semibold font-poppins text-btnBackground"
@@ -50,7 +81,7 @@ const TrackMyOrder = () => {
                   className="w-full p-3 rounded-md bg-gray-700 text-white outline-none border-none md:text-[13px] text-[11px]"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <label
                   htmlFor="email"
                   className="block text-[15px] mb-1 font-semibold font-poppins text-btnBackground"
@@ -65,6 +96,8 @@ const TrackMyOrder = () => {
                 />
               </div>
               <button
+                data-aos="fade-up"
+                data-aos-delay="200"
                 type="submit"
                 className="w-full bg-btnBackground text-white font-roboto md:py-3 py-2 text-[12px] rounded-md font-semibold hover:bg-hoverBtnBackground uppercase md:text-[14px]"
               >
@@ -72,7 +105,11 @@ const TrackMyOrder = () => {
               </button>
             </form>
           </div>
-          <p className="mt-4 md:text-[14px] text-[12px] text-white/50 font-roboto font-normal">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="mt-4 md:text-[14px] text-[12px] text-white/50 font-roboto font-normal"
+          >
             Having trouble?
             <Link
               href="/contact"

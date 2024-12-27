@@ -16,7 +16,10 @@ const MenuTabs = () => {
   return (
     <div className="flex flex-col items-center justify-center w-[300px] mx-auto md:w-[700px] md:max-w-[1280px]">
       <div className="mb-4">
-        <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+        <ul
+         data-aos="fade-up"
+              data-aos-delay="200"
+        className="flex flex-wrap -mb-px text-sm font-medium text-center">
           {tabs.map((tab) => (
             <li key={tab.id} className="me-2">
               <button

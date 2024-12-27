@@ -5,7 +5,10 @@ import { TwoCardsPropsType } from "../../../types/componentTypes";
 const TwoCards = ({ image, heading }: TwoCardsPropsType) => {
   return (
     <>
-      <div className="lg:w-[570px] lg:h-[260px] w-full mx-auto h-[290px]  bg-black/20  text-white rounded-[20px] glass flex justify-between items-center md:flex-row flex-col gap-y-4 lg:py-12 lg:px-8 py-12">
+      <div
+       data-aos="fade-up"
+        data-aos-delay="200"
+      className="lg:w-[570px] lg:h-[260px] w-full mx-auto h-[290px]  bg-black/20  text-white rounded-[20px] glass flex justify-between items-center md:flex-row flex-col gap-y-4 lg:py-12 lg:px-8 py-12">
         <div className="lg:w-[330px] lg:h-[160px] w-full h-[100px] flex justify-center gap-[8px] flex-col px-7">
           <p className="text-btnBackground text-[14px] lg:text-[16px] font-normal font-roboto whitespace-nowrap md:text-[18px]">
             Payday promo

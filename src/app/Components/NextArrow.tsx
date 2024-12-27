@@ -8,6 +8,8 @@ const NextArrow = ({ onClick }: NextArrowsProps) => {
 
   return (
     <div
+         data-aos="fade-up"
+        data-aos-delay="200"
       onClick={onClick}
       onMouseEnter={() => setIsActive(true)} 
       onMouseLeave={() => setIsActive(false)} 

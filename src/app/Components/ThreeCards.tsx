@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { ThreeCardsPropsType } from "../../../types/componentTypes";
-
 const ThreeCards = ({ image, title, text, bgColor }: ThreeCardsPropsType) => {
   return (
     <section
+     data-aos="fade-up"
+        data-aos-delay="200"
       className={`lg:w-[370px] xl:h-[150px] w-full h-[120px] rounded-[10px] flex items-center gap-[20px] px-4`}
       style={{ backgroundColor: bgColor }}
     >

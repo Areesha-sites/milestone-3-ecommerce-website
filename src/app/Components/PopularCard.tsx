@@ -14,8 +14,11 @@ const PopularCard = ({
   return (
     <>
       <div className="">
-        <div className="relative m-10 w-full max-w-xs overflow-hidden  rounded-[20px] shadow-md card-bg">
-          <Link href="#">
+        <div
+             data-aos="fade-up"
+        data-aos-delay="200"
+        className="relative m-10 w-full max-w-xs overflow-hidden rounded-[20px] shadow-md card-bg">
+       
             <div className="flex justify-center items-center h-48 hover:bg-yellow-500 transition duration-300 rounded-[20px] ">
               <Image
                 height={170}
@@ -25,7 +28,7 @@ const PopularCard = ({
                 alt={name}
               />
             </div>
-          </Link>
+       
           <div className="mt-4 px-5 pb-5">
             <Link href="#">
               <h5 className="text-[23px] font-semibold font-roboto text-white">

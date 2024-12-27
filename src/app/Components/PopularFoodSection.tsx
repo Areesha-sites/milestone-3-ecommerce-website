@@ -5,10 +5,16 @@ import Slider from "./Slider";
 const PopularFoodSection = () => {
   return (
     <section className="w-full px-24 bg-black pb-16 text-white ">
-      <p className="text-[17px] text-left text-btnBackground font-normal font-greatVibes">
+      <p
+        data-aos="fade-up"
+        data-aos-delay="200"
+      className="text-[17px] text-left text-btnBackground font-normal font-greatVibes">
         Crispy, Every Bite Taste
       </p>
-      <h1 className="text-[35px] text-white font-bold font-roboto uppercase">
+      <h1
+        data-aos="fade-up"
+        data-aos-delay="200"
+      className="text-[35px] text-white font-bold font-roboto uppercase">
         Popular Food Items
       </h1>
      
