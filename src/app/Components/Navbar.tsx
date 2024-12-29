@@ -4,12 +4,12 @@ import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { FaSearch } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { ImSpoonKnife } from "react-icons/im";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { NavbarLinksType } from "../../../types/componentTypes";
 import { NavbarPropsType } from "../../../types/componentTypes";
+import { ImSpoonKnife } from "react-icons/im";
 const Navbar = ({ openNav }: NavbarPropsType) => {
   const [wishlistCount, setWishlistCount] = useState(0);
   useEffect(() => {
@@ -17,59 +17,12 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
     setWishlistCount(wishlist.length);
   }, []);
   const navLinks: NavbarLinksType[] = [
-    {
-      href: "/",
-      name: "Home",
-      dropdown: [],
-    },
-    {
-      href: "/about",
-      name: "About",
-      dropdown: [
-        // { href: "/about/our-story", name: "Our Story" },
-        // { href: "/about/vision-mission", name: "Vision & Mission" },
-        // { href: "/about/testimonials", name: "Testimonials" },
-      ],
-    },
-    {
-      href: "/services",
-      name: "Services",
-      dropdown: [
-        // { href: "/services/catering", name: "Catering Services" },
-        // { href: "/services/online-orders", name: "Online Orders" },
-        // { href: "/services/takeaway", name: "Takeaway" },
-      ],
-    },
-    {
-      href: "/menu",
-      name: "Menu",
-      dropdown: [
-        // { href: "/menu/burgers", name: "Burgers" },
-        // { href: "/menu/fries", name: "Fries" },
-        // { href: "/menu/drinks", name: "Drinks" },
-        // { href: "/menu/desserts", name: "Desserts" },
-        // { href: "/menu/combos", name: "Combos" },
-        // { href: "/menu/special-items", name: "Special Items" },
-      ],
-    },
-    {
-      href: "/gallery",
-      name: "Gallery",
-      dropdown: [
-        // { href: "/gallery/food-shots", name: "Food Shots" },
-        // { href: "/gallery/events", name: "Events" },
-        // { href: "/gallery/behind-the-scenes", name: "Behind the Scenes" },
-      ],
-    },
-    {
-      href: "/blog",
-      name: "Blog",
-      dropdown: [
-        // { href: "/blog/latest-news", name: "Latest News" },
-        // { href: "/blog/health-tips", name: "Health Tips" },
-        // { href: "/blog/food-trends", name: "Food Trends" },
-      ],
-    },
+    { href: "/", name: "Home", dropdown: [] },
+    { href: "/about", name: "About", dropdown: [] },
+    { href: "/services", name: "Services", dropdown: [] },
+    { href: "/menu", name: "Menu", dropdown: [] },
+    { href: "/gallery", name: "Gallery", dropdown: [] },
+    { href: "/blog", name: "Blog", dropdown: [] },
     {
       href: "/contact",
       name: "Contact",
@@ -89,7 +42,6 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
   }, []);
   const handleSearchToggle = () => setIsSearchActive(true);
   const closeSearchMode = () => setIsSearchActive(false);
-
   const toggleDropdown = (index: number) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
@@ -110,8 +62,6 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
                 placeholder="Search..."
               />
             </div>
-            {/* <FaCartArrowDown  className="text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear cursor-pointer relative left-[-40px]"
-                  size={24}/> */}
             <IoClose
               size={30}
               className="cursor-pointer"
@@ -121,7 +71,7 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
         ) : (
           <>
             <div className="flex items-center text-white md:space-x-2">
-              <ImSpoonKnife className="md:h-7 md:w-7 h-5 w-5 text-btnBackground" />
+              <ImSpoonKnife className="text-btnBackground h-7 w-7" />
               <span className="text-[17px] xl:text-[1.4rem] md:text-[20px] font-extrabold italic text-btnBackground">
                 <Link href="/">ChowChamps</Link>
               </span>
@@ -172,7 +122,7 @@ const Navbar = ({ openNav }: NavbarPropsType) => {
               </div>
               <div className="flex items-center justify-between space-x-4">
                 <button
-                  className="text-lg  py-1 rounded flex items-center justify-center"
+                  className="text-lg py-1 rounded flex items-center justify-center"
                   onClick={handleSearchToggle}
                 >
                   <FaSearch className="text-white hover:scale-110 hover:text-btnBackground transition-all duration-300 ease-linear xl:h-[24px] xl:w-[24px] md:w-[22px] md:h-[22px] h-[19px] w-[19px]" />

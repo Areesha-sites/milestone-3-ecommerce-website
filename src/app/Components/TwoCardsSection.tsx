@@ -1,9 +1,8 @@
 import React from "react";
 import TwoCards from "./TwoCards";
-
 const TwoCardsSection = () => {
   return (
-    <section className="w-full py-3 lg:px-10 px-4 bg-black flex justify-between lg:flex-row flex-col gap-y-8">
+    <section className="w-full py-3 lg:px-10 px-4 bg-black flex justify-between xxl:justify-center lg:flex-row flex-col gap-y-8">
       <TwoCards
         image="/discount-image.png"
         heading="Get a 10% discount on payday week"

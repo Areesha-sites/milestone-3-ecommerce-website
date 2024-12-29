@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Header from "./Components/Header";
 import Banner from "./Components/Banner";
 import ThreeCardsSection from "./Components/ThreeCardsSection";
@@ -20,14 +20,15 @@ export default function Home() {
   return (
     <>
       <div className="">
-        {/* <Header /> */}
+        <Header />
+        <div className="">
           <Banner />
           <ThreeCardsSection />
           <TwoCardsSection />
           <BestTestedFood />
-          <PopularFoodSection/>
+          <PopularFoodSection />
         </div>
-  
+      </div>
     </>
   );
 }

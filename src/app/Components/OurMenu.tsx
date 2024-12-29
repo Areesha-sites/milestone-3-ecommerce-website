@@ -14,7 +14,7 @@ const OurMenu = () => {
           commodo ligula eget dolor. Aenean massa.
         </p>
         <div className="my-5 ">
-      <MenuTabs/>
+          <MenuTabs />
         </div>
       </section>
     </>

@@ -16,7 +16,7 @@ const Gallery = () => {
   }, []);
   return (
     <>
-      <section className="bg-black w-full h-auto py-44 md:pt-52 lg:pt-48 pt-40 md:px-14 px-5 text-white">
+      <section className="bg-black w-full h-auto py-44 md:pt-52 lg:pt-48 xxl:py-52 pt-40 md:px-14 px-5 text-white">
         <div className="flex justify-center items-center flex-col gap-y-5">
           <span
             data-aos="fade-up"
@@ -28,7 +28,7 @@ const Gallery = () => {
           <h1
             data-aos="fade-up"
             data-aos-delay="200"
-            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
+            className="uppercase xl:text-[48px] md:text-[38px] xxl:text-[54px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
           >
             Explore Our <span className="text-btnBackground">Culinary</span>{" "}
             Journey
@@ -41,7 +41,7 @@ const Gallery = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
+            className="text-white/70 text-[12px] xxl:text-[16px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
           >
             Delight in a visual feast of our signature dishes, catered events,
             and behind-the-scenes moments. Discover the passion, creativity, and
@@ -126,21 +126,21 @@ const Gallery = () => {
           <span
             data-aos="fade-up"
             data-aos-delay="300"
-            className="md:text-[14px] text-[12px] mb-[-15px] font-greatVibes text-btnBackground font-normal"
+            className="md:text-[14px] text-[12px] xxl:text-[20px] mb-[-15px] font-greatVibes text-btnBackground font-normal"
           >
             Building Trust, One Story at a Time.
           </span>
           <h1
             data-aos="fade-up"
             data-aos-delay="300"
-            className="md:text-[34px] text-[20px] leading-[20px] font-roboto text-white font-bold uppercase mb-[-15px] text-center"
+            className="md:text-[34px] xxl:text-[38px] text-[20px] leading-[20px] font-roboto text-white font-bold uppercase mb-[-15px] text-center"
           >
             What Our Customers Say!
           </h1>
           <p
             data-aos="fade-up"
             data-aos-delay="300"
-            className="md:text-[14px] text-[12px] text-white/50 font-roboto font-normal lg:w-[750px] text-center w-full lg:leading-[15px]"
+            className="md:text-[14px] text-[12px] xxl:text-[16px] text-white/50 font-roboto font-normal lg:w-[750px] text-center w-full lg:leading-[15px] xxl:leading-[20px]"
           >
             Discover how our products and services have delighted our customers.
             Real experience, genuine feedback, and inspiring stories shared by

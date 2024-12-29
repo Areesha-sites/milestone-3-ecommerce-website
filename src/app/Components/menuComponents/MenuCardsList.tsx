@@ -5,7 +5,7 @@ const MenuCardsList = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 ">
       {menuData.map((item) => (
-        <MenuCard 
+        <MenuCard
           key={item.id}
           id={item.id}
           image={item.image}

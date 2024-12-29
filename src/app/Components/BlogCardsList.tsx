@@ -4,7 +4,7 @@ import BlogCard from "./BlogCard";
 const BlogCardsList = () => {
   return (
     <>
-      <div className="grid grid-cols-1 gap-y-[50px] xl:gap-y-[10px] px-2">
+      <div className="grid grid-cols-1 gap-y-[50px] xl:gap-y-[10px] xxl:gap-y-[40px] px-2">
         {blogsData.map((item, index) => (
           <BlogCard
             id={item.id}

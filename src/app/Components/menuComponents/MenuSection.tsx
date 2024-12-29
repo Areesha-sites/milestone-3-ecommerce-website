@@ -15,7 +15,7 @@ const MenuSection = () => {
           </p>
         </div>
         <div className="">
-          <MenuCardsList/>
+          <MenuCardsList />
         </div>
       </div>
     </>

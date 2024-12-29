@@ -21,9 +21,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
-  --foreground: #171717;
-  --btnBackground: #ffb200;
-  --hoverBtnBackground: #e9a300;
+    --foreground: #171717;
+    --btnBackground: #ffb200;
+    --hoverBtnBackground: #e9a300;
   }
 }
 body {
@@ -101,25 +101,48 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
 .heart-icon:hover {
-color: red;
+  color: red;
 }
 .sidebar {
-  width: 90%; 
-  margin: 0 auto; 
-  padding: 10px; 
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
   box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 70%; 
+    width: 70%;
   }
 }
 
 @media (min-width: 1024px) {
   .sidebar {
-    width: 30%; 
+    width: 30%;
   }
 }
-
-
+@keyframes upDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.animate-upDown {
+  animation: upDown 3s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 16s linear infinite;
+}

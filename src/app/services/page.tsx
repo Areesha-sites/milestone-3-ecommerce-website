@@ -14,7 +14,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "1",
     icon: (
-      <FaTruck className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaTruck className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Fast Food Delivery",
     description:
@@ -23,7 +23,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "2",
     icon: (
-      <FaConciergeBell className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaConciergeBell className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Events Catering",
     description:
@@ -32,7 +32,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "3",
     icon: (
-      <FaHamburger className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaHamburger className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Customizable Meals",
     description:
@@ -41,7 +41,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "4",
     icon: (
-      <FaUserTie className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaUserTie className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Weekly Meal Plans",
     description:
@@ -50,7 +50,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "5",
     icon: (
-      <FaTruck className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaTruck className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Quick Takeaway",
     description:
@@ -59,7 +59,7 @@ const servicesData: ServicesCardsPropsTypes[] = [
   {
     id: "6",
     icon: (
-      <FaConciergeBell className="h-12 w-12 text-btnBackground group-hover:text-white" />
+      <FaConciergeBell className="h-12 w-12 xxl:h-16 xxl:w-16 text-btnBackground group-hover:text-white" />
     ),
     title: "Exclusive Deals",
     description:
@@ -90,7 +90,7 @@ const Services = () => {
           <h1
             data-aos="fade-up"
             data-aos-delay="200"
-            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center xl:leading-[45px] xl:w-[800px] md:leading-[38px]"
+            className="uppercase xxl:text-[54px] xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center xl:leading-[45px] xl:w-[800px] md:leading-[38px] xxl:leading-[55px]"
           >
             <span className="text-btnBackground"> Our Services:</span> delicious
             Food, Delivered with Excellence
@@ -103,7 +103,7 @@ const Services = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full"
+            className="text-white/70 xxl:text-[16px] text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full"
           >
             Explore the premium services we offer to make your food experience
             seamless, delightful, and memorable.
@@ -115,15 +115,15 @@ const Services = () => {
               data-aos="fade-up"
               data-aos-delay="200"
               key={service.id}
-              className="w-full h-[220px] card-bg shadow-2xl px-4 py-7 flex flex-col xl:justify-start gap-[10px] group hover:bg-btnBackground transition duration-300 cursor-pointer justify-center"
+              className="w-full h-[220px] card-bg shadow-2xl px-4 py-7 flex flex-col xl:justify-start gap-[10px] group hover:bg-btnBackground transition-all duration-500 ease-linear cursor-pointer justify-center"
             >
-              <div className="text-btnBackground  transition duration-300">
+              <div className="text-btnBackground transition duration-300">
                 {service.icon}
               </div>
-              <h1 className="font-semibold text-[20px] font-roboto text-white group-hover:text-white transition duration-300">
+              <h1 className="font-semibold text-[20px] xxl:text-[24px] font-roboto text-white group-hover:text-white transition duration-300">
                 {service.title}
               </h1>
-              <p className="text-white/50 font-normal text-[13px] font-roboto group-hover:text-white transition duration-300">
+              <p className="text-white/50 font-normal xxl:text-[16px] text-[13px] font-roboto group-hover:text-white transition duration-300">
                 {service.description}
               </p>
             </div>

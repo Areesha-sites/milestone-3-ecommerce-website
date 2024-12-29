@@ -15,9 +15,15 @@ const AboutMarquee = () => {
               }}
             >
               {" "}
-            <h1>  deliciousfood </h1>
-            <Image src="/burger.png" alt="" height={100} width={100} className="w-[50px] h-[50px]"/>
-            <h1>populerdishes</h1>
+              <h1> deliciousfood </h1>
+              <Image
+                src="/burger.png"
+                alt=""
+                height={100}
+                width={100}
+                className="w-[50px] h-[50px]"
+              />
+              <h1>populerdishes</h1>
             </span>
           </Marquee>
         </div>

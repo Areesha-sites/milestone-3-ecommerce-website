@@ -74,15 +74,23 @@ export interface PrevArrowsProps {
   onClick: () => void;
 }
 export interface StarterBannerPropsTypes {
-  tagline: string,
-  title: string,
-  des: string
+  tagline: string;
+  title: string;
+  des: string;
 }
-
 export interface NextArrowsProps {
   onClick: () => void;
 }
-
 export interface PrevArrowsProps {
   onClick: () => void;
+}
+export interface AddToCartPropsTypes {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  imagesList?: string[] | undefined;
+  description?: string;
+  quantity: number;
 }

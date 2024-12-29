@@ -22,13 +22,13 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         btnBackground: "var(--btnBackground)",
-        hoverBtnBackground: "var(--hoverBtnBackground)"
+        hoverBtnBackground: "var(--hoverBtnBackground)",
       },
       fontFamily: {
-     poppins: ["poppins", "sans"],
-     roboto: ["roboto", "sans"],
-     greatVibes: ["GreatVibes", "sans"]
-      }
+        poppins: ["poppins", "sans"],
+        roboto: ["roboto", "sans"],
+        greatVibes: ["GreatVibes", "sans"],
+      },
     },
   },
   plugins: [],

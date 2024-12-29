@@ -8,7 +8,6 @@ import { GoHeart } from "react-icons/go";
 import {
   addToWishlist,
   removeFromWishlist,
-  getWishlist,
 } from "@/app/utils/localStorageHelper";
 const MenuCard = ({
   id,
@@ -22,7 +21,7 @@ const MenuCard = ({
   const [showPopup, setShowPopup] = useState(false);
 
   const handleAddToWishlist = () => {
-    const item = { id, name, image, price, discount, stock,  };
+    const item = { id, name, image, price, discount, stock };
     addToWishlist(item);
     setIsAddedToWishlist(true);
     setShowPopup(true);
@@ -38,9 +37,10 @@ const MenuCard = ({
     <>
       <div className="">
         <div
-         data-aos="fade-up"
-              data-aos-delay="200"
-        className="relative w-full md:max-w-xs max-w-[270px] mx-auto overflow-hidden rounded-[20px] shadow-md card-bg">
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="relative w-full md:max-w-xs max-w-[270px] mx-auto overflow-hidden rounded-[20px] shadow-md card-bg"
+        >
           <div
             className="w-[35px] h-[35px] wishlist-bg rounded-full flex justify-center items-center absolute right-[10px] top-[10px]"
             onClick={

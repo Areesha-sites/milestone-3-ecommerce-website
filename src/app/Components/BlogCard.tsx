@@ -25,7 +25,7 @@ const BlogCard = ({
           alt={title}
           width={600}
           height={400}
-          className="w-full h-[200px] lg:h-[400px] rounded-[10px] md:h-[300px] object-cover mx-auto"
+          className="w-full h-[200px] lg:h-[400px] xxl:w-full xxl:h-[400px] rounded-[10px] md:h-[300px] object-cover mx-auto"
         />
         <div
           data-aos="fade-up"
@@ -34,19 +34,19 @@ const BlogCard = ({
         >
           <div className="flex items-center gap-[6px]">
             <FaUser className="text-btnBackground w-[14px] h-[14px]" />
-            <p className="font-roboto text-[13px] text-white/50 font-normal">
+            <p className="font-roboto text-[13px] xxl:text-[16px] text-white/50 font-normal">
               {author}
             </p>
           </div>
           <div className="flex items-center gap-[6px]">
             <FaComments className="text-btnBackground xl:w-4 xl:h-4 h-3 w-3" />
-            <p className="font-roboto text-[13px] text-white/50 font-normal">
+            <p className="font-roboto text-[13px] xxl:text-[16px] text-white/50 font-normal">
               {comments} Comments
             </p>
           </div>
           <div className="flex items-center gap-[6px]">
             <SlCalender className="text-btnBackground xl:w-4 xl:h-4 h-3 w-3" />
-            <p className="font-roboto text-[13px] text-white/50 font-normal whitespace-nowrap">
+            <p className="font-roboto text-[13px] xxl:text-[16px] text-white/50 font-normal whitespace-nowrap">
               {date}
             </p>
           </div>
@@ -54,7 +54,7 @@ const BlogCard = ({
         <h1
           data-aos="fade-up"
           data-aos-delay="300"
-          className="xl:text-[32px] text-[22px] text-white font-roboto font-bold xl:leading-[35px] leading-[25px] mt-5"
+          className="xl:text-[32px] text-[22px] xxl:text-[36px] text-white font-roboto font-bold xl:leading-[35px] leading-[25px] mt-5"
         >
           <span
             data-aos="fade-up"
@@ -68,7 +68,7 @@ const BlogCard = ({
         <p
           data-aos="fade-up"
           data-aos-delay="300"
-          className="text-white/50 font-normal font-roboto text-[12px] xl:text-[14px]"
+          className="text-white/50 font-normal font-roboto text-[12px] xl:text-[14px] xxl:text-[16px]"
         >
           {des}
         </p>
@@ -80,7 +80,7 @@ const BlogCard = ({
           <Link
             href={`/blogDetails/${id}`}
             passHref
-            className="text-btnBackground hover:text-white text-[12px] xl:text-[14px] font-roboto font-medium hover:text-btnBackground transition-all duration-200 ease-linear "
+            className="text-btnBackground hover:text-white text-[12px] xxl:text-[16px] xl:text-[14px] font-roboto font-medium hover:text-btnBackground transition-all duration-200 ease-linear "
           >
             Read More
           </Link>

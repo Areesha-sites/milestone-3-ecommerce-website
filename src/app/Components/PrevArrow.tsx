@@ -2,22 +2,18 @@
 import React, { useState } from "react";
 import { PrevArrowsProps } from "../../../types/componentTypes";
 import { GoArrowLeft } from "react-icons/go";
-
 const PrevArrow = ({ onClick }: PrevArrowsProps) => {
   const [isActive, setIsActive] = useState(false);
-
   return (
     <div
-         data-aos="fade-up"
-        data-aos-delay="200"
       onClick={onClick}
-      onMouseEnter={() => setIsActive(true)} 
-      onMouseLeave={() => setIsActive(false)} 
-      className={`w-[46px] h-[46px] rounded-full ${
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+      className={`md:w-[46px] md:h-[46px] w-[38px] h-[38px] rounded-full ${
         isActive ? "bg-btnBackground" : "card-bg"
-      } flex items-center justify-center cursor-pointer absolute top-[-77px] left-[960px] transition-colors duration-300`}
+      } flex items-center justify-center cursor-pointer absolute top-[2%] xsm:right-[25%] xl:right-[10%] right-[20%] lg:right-[6%] lg:top-[-10%] md:right-[8%] transform -translate-y-1/2 transition-colors duration-300`}
     >
-      <GoArrowLeft className="h-[24px] w-[24px] text-white" />
+      <GoArrowLeft className="md:h-[24px] md:w-[24px] h-[20px] w-[20px] text-white" />
     </div>
   );
 };

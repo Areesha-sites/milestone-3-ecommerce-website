@@ -36,7 +36,7 @@ const TrackMyOrder = () => {
           <h1
             data-aos="fade-up"
             data-aos-delay="200"
-            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
+            className="uppercase xl:text-[48px] md:text-[38px] xxl:text-[54px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
           >
             track your <span className="text-btnBackground">order</span>
           </h1>
@@ -48,7 +48,7 @@ const TrackMyOrder = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
+            className="text-white/70 text-[12px] xxl:text-[16px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full "
           >
             Enter your Order ID or Email below to check the real-time status of
             your order.
@@ -70,7 +70,7 @@ const TrackMyOrder = () => {
               <div data-aos="fade-up" data-aos-delay="200">
                 <label
                   htmlFor="order-id"
-                  className="block text-[15px] mb-1 font-semibold font-poppins text-btnBackground"
+                  className="block text-[15px] xxl:text-[18px] mb-1 font-semibold font-poppins text-btnBackground"
                 >
                   Order ID
                 </label>
@@ -78,13 +78,13 @@ const TrackMyOrder = () => {
                   type="text"
                   id="order-id"
                   placeholder="Enter your Order ID"
-                  className="w-full p-3 rounded-md bg-gray-700 text-white outline-none border-none md:text-[13px] text-[11px]"
+                  className="w-full p-3 rounded-md xxl:text-[14px] bg-gray-700 text-white outline-none border-none md:text-[13px] text-[11px]"
                 />
               </div>
               <div data-aos="fade-up" data-aos-delay="200">
                 <label
                   htmlFor="email"
-                  className="block text-[15px] mb-1 font-semibold font-poppins text-btnBackground"
+                  className="block text-[15px] mb-1 xxl:text-[18px] font-semibold font-poppins text-btnBackground"
                 >
                   Email Address
                 </label>
@@ -92,14 +92,14 @@ const TrackMyOrder = () => {
                   type="email"
                   id="email"
                   placeholder="Enter your email"
-                  className="w-full p-3 rounded-md bg-gray-700 text-white outline-none border-none md:text-[13px] text-[11px]"
+                  className="w-full p-3 rounded-md xxl:text-[14px]  bg-gray-700 text-white outline-none border-none md:text-[13px] text-[11px]"
                 />
               </div>
               <button
                 data-aos="fade-up"
                 data-aos-delay="200"
                 type="submit"
-                className="w-full bg-btnBackground text-white font-roboto md:py-3 py-2 text-[12px] rounded-md font-semibold hover:bg-hoverBtnBackground uppercase md:text-[14px]"
+                className="w-full bg-btnBackground xxl:text-[14px] text-white font-roboto md:py-3 py-2 text-[12px] rounded-md font-semibold hover:bg-hoverBtnBackground uppercase md:text-[14px]"
               >
                 Track My Order
               </button>
@@ -108,12 +108,12 @@ const TrackMyOrder = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="mt-4 md:text-[14px] text-[12px] text-white/50 font-roboto font-normal"
+            className="mt-4 md:text-[14px] xxl:text-[14px] text-[12px] text-white/50 font-roboto font-normal"
           >
             Having trouble?
             <Link
               href="/contact"
-              className="ml-1 text-blue-600 underline text-[13px] font-normal font-roboto"
+              className="ml-1 text-blue-600 xxl:text-[14px] underline text-[13px] font-normal font-roboto"
             >
               Contact Us
             </Link>

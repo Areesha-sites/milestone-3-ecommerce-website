@@ -31,7 +31,7 @@ const Contact = () => {
           <h1
             data-aos="fade-up"
             data-aos-delay="200"
-            className="uppercase xl:text-[48px] md:text-[38px] text-[28px] text-center leading-[30px] font-bold font-poppins lg:text-[43px]"
+            className="uppercase xl:text-[48px] xxl:text-[54px] md:text-[38px] text-[28px] text-center leading-[30px] font-bold font-poppins lg:text-[43px]"
           >
             Get in Touch with <span className="text-btnBackground">Us.</span>
           </h1>
@@ -43,7 +43,7 @@ const Contact = () => {
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-white/70 text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full"
+            className="text-white/70 text-[12px] xxl:text-[16px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full"
           >
             Have questions, feedback, or need assistance? We would love to hear
             from you! At Chow Champs, your satisfaction is our priority. Use the
@@ -67,7 +67,7 @@ const Contact = () => {
                 data-aos-delay="200"
                 className="border-b-[4px] w-[100px] border-btnBackground"
               ></div>
-              <p className="text-white/70 md:text-[12px] lg:text-[14px] text-[12px] xl:text-[14px] md:w-[200px] font-roboto font-normal xl:w-[500px] lg:w-[350px]">
+              <p className="text-white/70 md:text-[12px] lg:text-[14px] text-[12px] xl:text-[14px] md:w-[200px] font-roboto font-normal xl:w-[500px] lg:w-[350px] xxl:text-[16px]">
                 For immediate assistance, call our support team at
                 [+62831-2864-3491] available from 9 AM to 9 PM."
               </p>
@@ -89,7 +89,7 @@ const Contact = () => {
                   <h2 className="xl:text-[22px] md:text-[18px] text-[14px] font-poppins font-bold uppercase text-white">
                     Location
                   </h2>
-                  <p className=" md:text-[12px] xl:text-[14px] text-[10px] text-white/75 font-normal font-roboto xl:w-[150px]">
+                  <p className=" md:text-[12px] xl:text-[14px] xxl:text-[16px] text-[10px] text-white/75 font-normal font-roboto xl:w-[150px]">
                     Jl. Pantai Kuta No.34, Badung, Bali
                   </p>
                 </div>
@@ -110,7 +110,7 @@ const Contact = () => {
                   <h2 className="xl:text-[22px] md:text-[18px] text-[14px]  font-poppins font-bold uppercase text-white">
                     Email
                   </h2>
-                  <p className=" md:text-[12px] xl:text-[14px] text-[10px] text-white/75 font-normal font-roboto xl:w-[150px]">
+                  <p className="xxl:text-[16px] md:text-[12px] xl:text-[14px] text-[10px] text-white/75 font-normal font-roboto xl:w-[150px]">
                     contact@burgry.com
                   </p>
                 </div>
@@ -133,7 +133,7 @@ const Contact = () => {
                   <h2 className=" md:text-[18px] xl:text-[22px] text-[14px] font-poppins font-bold uppercase text-white">
                     Phone
                   </h2>
-                  <p className=" md:text-[12px] xl:text-[14px] text-[12px] text-white/75 font-normal font-roboto w-[150px]">
+                  <p className="xxl:text-[16px] md:text-[12px] xl:text-[14px] text-[12px] text-white/75 font-normal font-roboto w-[150px]">
                     +62831-2864-3491
                   </p>
                 </div>
@@ -155,12 +155,12 @@ const Contact = () => {
                 data-aos-delay="200"
                 className="flex flex-col"
               >
-                <label className="font-medium text-white text-[13px] md:text-[15px] font-roboto">
+                <label className="font-medium xxl:text-[16px] text-white text-[13px] md:text-[15px] font-roboto">
                   First Name <span className="text-btnBackground">*</span>
                 </label>
                 <input
                   type="text"
-                  className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[170px] lg:w-[240px] xl:w-[320px] "
+                  className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[170px] lg:w-[240px] xl:w-[320px] xxl:text-[16px]"
                   placeholder="Your Name"
                   required
                 />
@@ -170,12 +170,12 @@ const Contact = () => {
                 data-aos-delay="200"
                 className="flex flex-col mt-4 md:mt-0"
               >
-                <label className="font-medium text-white text-[13px] md:text-[15px] font-roboto">
+                <label className="font-medium text-white xxl:text-[16px] text-[13px] md:text-[15px] font-roboto">
                   Email Address <span className="text-btnBackground">*</span>
                 </label>
                 <input
                   type="text"
-                  className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[170px] lg:w-[240px] xl:w-[320px]"
+                  className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[170px] lg:w-[240px] xl:w-[320px] xxl:text-[16px]"
                   placeholder="email@youremail.com"
                   required
                 />
@@ -186,12 +186,12 @@ const Contact = () => {
               data-aos-delay="200"
               className="flex flex-col mt-5"
             >
-              <label className="font-medium text-white text-[13px] md:text-[15px] font-roboto">
+              <label className="font-medium text-white text-[13px] md:text-[15px] xxl:text-[16px] font-roboto">
                 Subject <span className="text-btnBackground">*</span>
               </label>
               <input
                 type="text"
-                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[355px] lg:w-[500px] xl:w-[660px]"
+                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full md:w-[355px] lg:w-[500px] xl:w-[660px] xxl:text-[16px]"
                 placeholder="Subject"
                 required
               />
@@ -201,13 +201,13 @@ const Contact = () => {
               data-aos-delay="200"
               className="flex flex-col mt-5"
             >
-              <label className="font-medium text-white text-[13px] md:text-[15px] font-roboto">
+              <label className="font-medium text-white text-[13px] xxl:text-[16px] md:text-[15px] font-roboto">
                 Comments / Questions{" "}
                 <span className="text-btnBackground">*</span>
               </label>
               <textarea
                 rows={7}
-                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full  md:w-[355px]  lg:w-[500px] xl:w-[660px]"
+                className="contactInput px-4 py-3 text-white/70 text-[12px] font-roboto border-none outline-none mt-1 w-full  md:w-[355px]  lg:w-[500px] xl:w-[660px] xxl:text-[16px]"
                 placeholder="Your Message"
                 required
               />
@@ -217,7 +217,7 @@ const Contact = () => {
               data-aos-delay="200"
               className="flex justify-center lg:justify-start mt-5"
             >
-              <button className="bg-btnBackground hover:bg-hoverBtnBackground px-5 py-2 text-white font-roboto font-semibold uppercase rounded-[5px] text-[12px] md:text-[14px] w-[150px] md:w-[140px] xl:w-[170px] h-[30px] md:h-[35px] xl:h-[45px] whitespace-nowrap flex justify-center items-center">
+              <button className="bg-btnBackground hover:bg-hoverBtnBackground px-5 py-2 text-white font-roboto font-semibold uppercase rounded-[5px] text-[12px] md:text-[14px] w-[150px] md:w-[140px] xl:w-[170px] h-[30px] md:h-[35px] xl:h-[45px] whitespace-nowrap flex justify-center items-center xxl:text-[16px]">
                 Submit Message
               </button>
             </div>
@@ -226,22 +226,21 @@ const Contact = () => {
         <div
           data-aos="fade-up"
           data-aos-delay="200"
-          className="border-b-[3px] border-white/20 w-[280px] xsm:w-[380px] sm:w-[330px] relative mx-auto top-[60px] my-5 md:w-[310px] md:top-[-130px] md:left-[-180px] lg:left-[-260px] lg:w-[400px] xl:w-[500px] xl:left-[-340px] xl:top-[-140px]"
+          className="border-b-[3px] border-white/20 w-[280px] xsm:w-[380px] sm:w-[330px] relative mx-auto top-[60px] my-5 md:w-[310px] md:top-[-130px] md:left-[-180px] lg:left-[-260px] lg:w-[400px] xl:w-[500px] xl:left-[-340px] xl:top-[-140px] xxl:left-[-410px] xxl:top-[-180px]"
         ></div>
-
         <div
           data-aos="fade-up"
           data-aos-delay="200"
-          className="flex justify-between items-center xl:w-[490px] md:w-[310px] lg:w-[400px] md:top-[-130px] relative top-[50px] xl:top-[-150px]"
+          className="flex justify-between items-center xl:w-[490px] md:w-[310px] lg:w-[400px] md:top-[-130px] relative top-[50px] xl:top-[-150px] xxl:top-[-180px]"
         >
           <h1 className="xl:text-[22px] lg:text-[20px] md:text-[15px] text-[17px] font-bold uppercase text-white font-poppins whitespace-nowrap">
             OUR SOCIAL MEDIA
           </h1>
           <div className="flex justify-center items-center md:gap-[20px] gap-[10px]">
-            <FaFacebook className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
-            <RiInstagramFill className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
-            <FaTwitter className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
-            <FaYoutube className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
+            <FaFacebook className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] xxl:w-[25px] xxl:h-[25px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
+            <RiInstagramFill className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] xxl:w-[25px] xxl:h-[25px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
+            <FaTwitter className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] xxl:w-[25px] xxl:h-[25px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
+            <FaYoutube className="md:w-[20px] md:h-[20px] w-[15px] h-[15px] xxl:w-[25px] xxl:h-[25px] cursor-pointer hover:scale-110 duration-200 transition-all ease-linear text-btnBackground" />
           </div>
         </div>
         <div

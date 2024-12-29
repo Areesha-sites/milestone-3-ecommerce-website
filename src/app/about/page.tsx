@@ -1,14 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { LiaMedalSolid } from "react-icons/lia";
-import { FaStarOfLife } from "react-icons/fa6";
-import { GiHamburger } from "react-icons/gi";
 import Link from "next/link";
 import { BsTruck } from "react-icons/bs";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import AnimatedGrid from "../Components/AnimatedGrid";
 const About = () => {
   useEffect(() => {
     AOS.init({
@@ -20,8 +18,8 @@ const About = () => {
   }, []);
   return (
     <>
-      <section className="w-full bg-black text-white h-auto px-2 py-36 lg:pt-48 xl:pt-40">
-        <div className="grid xl:grid-cols-2 grid-cols-1 md:grid-cols-2 gap-7 mx-auto px-4 sm:px-6 xl:px-24 max-w-[1200px]">
+      <section className="w-full bg-black text-white h-auto px-2 py-36 lg:pt-40 xl:pt-40">
+        <div className="grid xl:grid-cols-2 grid-cols-1 md:grid-cols-2 xxl:grid-cols-2 xxl:gap-x-[70px] xxl:px-4 gap-7 mx-auto px-4 sm:px-6 xl:px-24 max-w-[1200px] xxl:w-full">
           <div className="relative flex flex-col items-center">
             <Image
               data-aos="fade-up"
@@ -30,7 +28,7 @@ const About = () => {
               alt="burger-text"
               height={100}
               width={100}
-              className="h-[100px] w-[100px] xl:h-[200px] xl:w-[200px] mx-auto absolute top-[10px] left-[30px] z-30 lg:top-[10px] lg:left-[70px] lg:w-[150px] lg:h-[150px] xl:top-0 xl:left-0"
+              className="h-[100px] w-[100px] xl:h-[200px] xl:w-[200px] mx-auto absolute top-[10px] left-[30px] z-30 lg:top-[10px] lg:left-[70px] lg:w-[150px] lg:h-[150px] xl:top-0 xl:left-0 floating"
             />
             <Image
               data-aos="fade-up"
@@ -45,6 +43,7 @@ const About = () => {
               data-aos="fade-up"
               data-aos-delay="200"
               className="about-tag bg-btnBackground w-[130px] h-[50px] xl:w-[180px] xl:h-[80px] lg:w-[150px] lg:h-[60px] text-[12px] xl:text-[23px] font-roboto text-white font-bold uppercase rounded-[10px] flex justify-center items-center mt-4 relative xl:top-[-130px] xl:left-[100px] left-[60px] top-[-80px] md:text-[18px]"
+              style={{ transform: "rotate(-22deg)" }}
             >
               since /1985
             </div>
@@ -54,14 +53,14 @@ const About = () => {
             <span
               data-aos="fade-up"
               data-aos-delay="200"
-              className="xl:text-[18px] text-[14px] mt-2 font-greatVibes text-btnBackground font-normal"
+              className="xl:text-[18px] text-[14px] xxl:text-[18px] mt-2 font-greatVibes text-btnBackground font-normal"
             >
               About Our Food
             </span>
             <h1
               data-aos="fade-up"
               data-aos-delay="200"
-              className="text-white xl:text-[43px] text-[28px] leading-[30px] xl:leading-[50px] mt-3 font-extrabold uppercase  font-roboto lg:text-[35px] lg:leading-[35px] "
+              className="text-white xl:text-[43px] text-[28px] leading-[30px] xl:leading-[50px] mt-3 font-extrabold uppercase  font-roboto lg:text-[35px] lg:leading-[35px]  xxl:text-[54px] "
             >
               The <span className="text-btnBackground">Heart</span> of Chow
               Champs
@@ -69,7 +68,7 @@ const About = () => {
             <p
               data-aos="fade-up"
               data-aos-delay="200"
-              className=" text-[12px] xl:text-[14px] text-white/65 font-normal mt-5 font-roboto"
+              className=" text-[12px] xl:text-[14px] xxl:text-[16px] text-white/65 font-normal mt-5 font-roboto"
             >
               At Chow Champs, we are passionate about providing the finest food
               with exceptional service. Our journey started with a vision to
@@ -95,7 +94,7 @@ const About = () => {
                   <h3 className="font-semibold whitespace-normal text-[15px] xl:text-[18px] font-sans text-white uppercase">
                     super quality food
                   </h3>
-                  <p className=" text-[12px] xl:text-[14px] text-white/65 font-sans font-normal">
+                  <p className=" text-[12px] xxl:text-[16px] xl:text-[14px] text-white/65 font-sans font-normal">
                     A team of dreamers and doers build unique interactive music
                     and art
                   </p>
@@ -119,7 +118,7 @@ const About = () => {
                   <h3 className="font-semibold text-[15px] xl:text-[18px] font-sans text-white uppercase">
                     well reputation
                   </h3>
-                  <p className=" text-[12px] xl:text-[14px] text-white/65 font-sans font-normal">
+                  <p className="text-[12px] xxl:text-[16px] xl:text-[14px] text-white/65 font-sans font-normal">
                     A team of dreamers and doers build unique interactive music
                     and art
                   </p>
@@ -128,63 +127,10 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 md:grid-cols-2 gap-y-[20px] gap-x-4 relative top-[80px] px-4">
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="col-span-1 w-full h-[170px] card-bg rounded-[10px] flex flex-col justify-center items-center"
-          >
-            <LiaMedalSolid className="xl:h-16 xl:w-16 h-12 w-12 text-btnBackground" />
-            <div className="flex justify-center">
-              <h1 className="text-[30px] text-white font-roboto font-bold">
-                15
-              </h1>
-              <FaStarOfLife className="h-2 w-2 text-btnBackground" />
-            </div>
-            <p className="text-white/50 font-roboto text-[15px] font-normal">
-              Year Experience
-            </p>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="col-span-1 sm:col-span-1 w-full h-[170px] card-bg rounded-[10px] flex flex-col justify-center gap-[5px] items-center"
-          >
-            <GiHamburger className="xl:h-16 xl:w-16 h-12 w-12 text-btnBackground" />
-            <div className="flex justify-center">
-              <h1 className="text-[30px] text-white font-roboto font-bold">
-                90
-              </h1>
-              <FaStarOfLife className="h-2 w-2 text-btnBackground" />
-            </div>
-            <p className="text-white/50 font-roboto text-[15px] font-normal">
-              Menu Variant
-            </p>
-          </div>
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-1 w-full h-[170px] card-bg rounded-[10px] flex flex-col justify-center items-center"
-          >
-            <Image
-              src="/serve-svgrepo-com.svg"
-              alt=""
-              height={64}
-              width={64}
-              className="xl:h-20 xl:w-20 h-16 w-16"
-            />
-            <div className="flex justify-center">
-              <h1 className="text-[30px] text-white font-roboto font-bold">
-                500K
-              </h1>
-              <FaStarOfLife className="h-2 w-2 text-btnBackground" />
-            </div>
-            <p className="text-white/50 font-roboto text-[15px] font-normal">
-              Order Served
-            </p>
-          </div>
+        <div className="">
+          <AnimatedGrid />
         </div>
-        <div className="relative w-full xl:h-[56vh] xl:py-40 md:h-[30vh] lg:py-36 h-auto py-7 mt-16 top-[100px]">
+        <div className="relative w-full xl:h-[56vh] xl:py-40 md:h-[50vh] lg:py-36 h-auto py-7 mt-16 top-[100px]">
           <div className="absolute inset-0">
             <Image
               src="/085fb90b4c54d2abed9de37bfa96ef6c.jpg"
@@ -202,9 +148,9 @@ const About = () => {
                 <p
                   data-aos="fade-up"
                   data-aos-delay="200"
-                  className="text-[16px] text-btnBackground font-normal font-greatVibes z-30"
+                  className="text-[16px] xxl:text-[20px] text-btnBackground font-normal font-greatVibes z-30"
                 >
-                  crispy, every bite taste
+                  Crispy, Every Bite Taste
                 </p>
                 <h1
                   data-aos="fade-up"
@@ -222,7 +168,7 @@ const About = () => {
                   alt=""
                   height={100}
                   width={100}
-                  className="xl:w-[100px] xl:h-[130px] h-[50px] w-[50px] absolute left-0 rop-[30%] md:top-[70%] xl:top-[60%] lg:top-[90%] "
+                  className="xl:w-[100px] animate-upDown xl:h-[130px] h-[50px] w-[30px] absolute left-0 rop-[30%] md:top-[70%] xl:top-[60%] lg:top-[90%] "
                 />
               </div>
               <div className="">
@@ -244,7 +190,7 @@ const About = () => {
                   alt=""
                   height={50}
                   width={50}
-                  className="xl:w-[70px] xl:h-[70px] h-[50px] w-[50px] absolute right-0 top-[30%] md:top-[10%] xl:top-[30%] lg:top-[10%]"
+                  className="xl:w-[70px] xl:h-[70px] h-[50px] w-[50px] absolute right-0 top-[30%] md:top-[10%] xl:top-[30%] lg:top-[10%] animate-upDown"
                 />
               </div>
               <button

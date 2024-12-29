@@ -12,7 +12,7 @@ import { FaYoutube } from "react-icons/fa6";
 import { useState } from "react";
 import { FiX } from "react-icons/fi";
 import { VscSettings } from "react-icons/vsc";
-const BlogSidebar = () => {
+const BlogDetailSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -62,7 +62,7 @@ const BlogSidebar = () => {
   return (
     <>
       <button
-        className="block lg:hidden fixed top-[350px] ms:top-[320px] md:top-[330px] right-6 md:right-20 hover:bg-btnBackground bg-gray-800 p-2 rounded-full "
+        className="block lg:hidden fixed top-[350px] ms:top-[320px] md:top-[-20px] right-6 md:right-11 hover:bg-btnBackground bg-gray-800 p-2 rounded-full "
         onClick={toggleSidebar}
       >
         <VscSettings className="h-5 w-5 text-white" />
@@ -70,9 +70,9 @@ const BlogSidebar = () => {
       <aside
         className={`${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 fixed lg:static top-0 left-0 z-40 h-[100vh] lg:h-auto bg-black lg:bg-transparent text-white w-full p-5 md:p-0 transform transition-transform duration-300 ${
+        } lg:translate-x-0 fixed lg:static top-0 left-0 z-40 h-[100vh] lg:h-auto bg-black lg:bg-transparent text-white w-full p-5 md:p-0 transform transition-transform duration-300  md:w-[400px] ${
           isSidebarOpen ? "xs:overflow-y-auto" : "lg:overflow-visible"
-        } md:w-[400px] lg:w-[330px]`}
+        } lg:w-[330px]`}
       >
         <div
           data-aos="fade-up"
@@ -85,7 +85,7 @@ const BlogSidebar = () => {
           >
             <FiX className="text-[20px]" />
           </button>
-          <div className="lg:w-[330px] h-[140px] w-full text-white border-[1px] border-white/15 py-4 px-7 flex flex-col gap-[25px] md:mx-auto md:w-[360px] xxl:w-[390px] xxl:px-12">
+          <div className="lg:w-[330px] h-[140px] w-full text-white border-[1px] border-white/15 py-4 px-7 flex flex-col gap-[25px] md:mx-auto md:w-[330px] xxl:w-[390px] xxl:px-12">
             <div className="flex gap-[10px] justify-start items-center">
               <span className="border-l-[2px] border-btnBackground h-[20px]"></span>
               <span className="text-white font-medium font-roboto text-[18px] uppercase">
@@ -274,4 +274,4 @@ const BlogSidebar = () => {
   );
 };
 
-export default BlogSidebar;
+export default BlogDetailSidebar;
