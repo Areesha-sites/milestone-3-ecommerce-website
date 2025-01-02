@@ -48,15 +48,15 @@ const Wishlist = () => {
       ) : (
         <div>
           <div className="flex justify-center items-center flex-col gap-y-5">
-            <span className="text-[18px] mb-[-30px] font-greatVibes text-btnBackground font-normal">
+            <span className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal text-center">
               Save Your Favorite Flavors for Later.
             </span>
-            <h1 className="uppercase text-[48px] font-bold font-poppins">
+            <h1 className="uppercase xxl:text-[54px] xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center">
               Your Delicious{" "}
               <span className="text-btnBackground">Wishlist</span> Awaits!
             </h1>
             <div className="border-b-[4px] w-[100px] border-btnBackground"></div>
-            <p className="text-white/70 text-[14px] font-roboto font-normal w-[800px] text-center">
+            <p className="text-white/70 xxl:text-[16px] text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full">
               At ChowChampl, we know how hard it is to pick just one dish. Now,
               with our wishlist feature, you can save your favorite menu items
               and come back to them whenever you're ready to indulge. From
@@ -64,7 +64,7 @@ const Wishlist = () => {
               craving is just a click away. Start building your list of cravings
               today and never miss out on your favorite treats!
             </p>
-            <div className="flex items-center justify-between card-bg text-white w-[1100px] h-[70px] relative top-[20px] px-10 border-b-[1px] border-white/30 rounded-[4px]">
+            <div className="flex items-center justify-between card-bg text-white xl:w-[1100px] md:w-[700px] lg:w-[900px] h-[70px] relative top-[20px] px-10 border-b-[1px] border-white/30 rounded-[4px]">
               <h2 className="text-white font-bold font-roboto text-[14px]">
                 Image
               </h2>
@@ -88,7 +88,7 @@ const Wishlist = () => {
           {wishlist.map((item: any) => (
             <div
               key={item.id}
-              className="flex justify-between items-center w-[1100px] relative top-[40px] px-9 py-4 border-b-[1px] border-white/30"
+              className="flex justify-between items-center xl:w-[1100px] lg:w-[900px] md:w-[750px] relative top-[40px] xl:px-9 lg:px-8 md:px-0 py-4 border-b-[1px] border-white/30"
             >
               <Image
                 src={item.image}

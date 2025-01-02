@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { menuCardsPropsTypes } from "../../../../types/componentTypes";
 import Link from "next/link";
@@ -5,6 +6,8 @@ import Image from "next/image";
 import { MdOutlineStar } from "react-icons/md";
 import { BsCart3 } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
+import { useEffect } from "react";
+import CartSideMenu from "../CartSideMenu";
 import {
   addToWishlist,
   removeFromWishlist,
@@ -19,7 +22,78 @@ const MenuCard = ({
 }: menuCardsPropsTypes) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [cartItems, setCartItems] = useState<any[]>([]);
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem("cart");
+      const parsedCart = savedCart ? JSON.parse(savedCart) : [];
+      setCartItems(parsedCart);
+    } catch (error) {
+      console.error("Error parsing cart data from localStorage:", error);
+      setCartItems([]);
+    }
+  }, []);
+  const handleAddToCart = (product: any) => {
+    const updatedCart = [...cartItems];
+    const existingProductIndex = updatedCart.findIndex(
+      (item: any) => item.name === product.name
+    );
 
+    if (existingProductIndex >= 0) {
+      updatedCart[existingProductIndex].quantity += 1;
+    } else {
+      updatedCart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    setCartItems(updatedCart);
+    setIsSideMenuOpen(true);
+  };
+  const handleDeleteFromCart = (product: any) => {
+    const updatedCart = cartItems.filter(
+      (item: any) => item.name !== product.name
+    );
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
+  };
+  const handleIncreaseQuantity = (product: any) => {
+    const updatedCart = [...cartItems];
+    const productIndex = updatedCart.findIndex(
+      (item: any) => item.name === product.name
+    );
+    if (productIndex >= 0) {
+      updatedCart[productIndex].quantity += 1;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setCartItems(updatedCart);
+    }
+  };
+
+  const handleDecreaseQuantity = (product: any) => {
+    const updatedCart = [...cartItems];
+    const productIndex = updatedCart.findIndex(
+      (item: any) => item.name === product.name
+    );
+    if (productIndex >= 0 && updatedCart[productIndex].quantity > 1) {
+      updatedCart[productIndex].quantity -= 1;
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      setCartItems(updatedCart);
+    }
+  };
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
+  };
+
+  const goToCart = () => {
+    setIsSideMenuOpen(false);
+  };
+  const calculateTotalPrice = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
   const handleAddToWishlist = () => {
     const item = { id, name, image, price, discount, stock };
     addToWishlist(item);
@@ -27,12 +101,10 @@ const MenuCard = ({
     setShowPopup(true);
     setTimeout(() => setShowPopup(false), 2000);
   };
-
   const handleRemoveFromWishlist = () => {
     removeFromWishlist(id);
     setIsAddedToWishlist(false);
   };
-
   return (
     <>
       <div className="">
@@ -69,11 +141,11 @@ const MenuCard = ({
             />
           </div>
           <div className="mt-4 px-5 pb-5">
-            <Link href="#">
+         
               <h5 className="text-[23px] font-semibold font-roboto text-white">
                 {name}
               </h5>
-            </Link>
+         
             <div className="mt-2.5 mb-5 flex items-center justify-between">
               <div className="flex justify-start">
                 <span className="mr-2 rounded bg-btnBackground text-white px-2.5 py-0.5 text-xs font-semibold">
@@ -97,13 +169,15 @@ const MenuCard = ({
               </p>
             </div>
             <div className="flex items-center justify-between">
-              <Link
-                href="#"
+              <button
+                onClick={() =>
+                  handleAddToCart({ image, name, price, discount, stock })
+                }
                 className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
               >
                 <BsCart3 className="h-5 w-5 text-white mr-2 font-bold" />
                 Add to cart
-              </Link>
+              </button>
 
               <Link
                 href={`/menuDetails/${id}`}
@@ -115,6 +189,16 @@ const MenuCard = ({
             </div>
           </div>
         </div>
+        <CartSideMenu
+          products={cartItems}
+          isOpen={isSideMenuOpen}
+          onClose={closeSideMenu}
+          onAddToCart={goToCart}
+          onDelete={handleDeleteFromCart}
+          onIncreaseQuantity={handleIncreaseQuantity}
+          onDecreaseQuantity={handleDecreaseQuantity}
+          totalPrice={calculateTotalPrice()}
+        />
       </div>
     </>
   );

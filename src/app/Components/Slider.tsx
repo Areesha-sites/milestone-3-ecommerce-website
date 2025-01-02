@@ -7,7 +7,6 @@ import PrevArrow from "./PrevArrow";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 const CardsSlider = () => {
   const settings = {
     arrows: true,
@@ -42,7 +41,6 @@ const CardsSlider = () => {
       },
     ],
   };
-
   return (
     <div className="mt-8 mx-auto w-full md:px-7 relative sm:left-[-20px] ms:left-[-12px] xsm:left-[7px] md:left-[-15px] md:right-[-15px]">
       <Slider {...settings}>
@@ -74,5 +72,4 @@ const CardsSlider = () => {
     </div>
   );
 };
-
 export default CardsSlider;

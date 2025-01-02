@@ -1,133 +1,170 @@
 "use client";
-import { useState } from "react";
-import { AddToCartPropsTypes } from "../../../types/componentTypes";
-import { FaTrash } from "react-icons/fa";
-import Image from "next/image";
 import Link from "next/link";
-const AddToCart = () => {
-  const [cartItems, setCartItems] = useState<AddToCartPropsTypes[]>([]);
-  // useEffect(() => {
-  //   const cart = localStorage.getItem("cart");
-  //   const parsedCart = cart ? JSON.parse(cart) : []; // Safely parse or default to []
-  //   setCartItems(parsedCart);
-  // }, []);
-  const removeItemFromCart = (productId: number) => {
-    const updatedCart = cartItems.filter((item) => item.id !== productId);
-    setCartItems(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-  };
-  const decreaseQuantity = (productId: number) => {
-    const updatedCart = cartItems.map((item) => {
-      if (item.id === productId && item.quantity > 1) {
-        return { ...item, quantity: item.quantity - 1 };
+import React, { useEffect, useState } from "react";
+import CartSideMenu from "../Components/CartSideMenu";
+import Image from "next/image";
+import { RiSubtractLine } from "react-icons/ri";
+import { IoMdAdd } from "react-icons/io";
+import { FaTrash } from "react-icons/fa";
+const Cart = () => {
+  const [cart, setCart] = useState<
+    {
+      id: string;
+      name: string;
+      price: string;
+      image: string;
+      quantity: number;
+    }[]
+  >([]);
+  const [subtotal, setSubtotal] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart") || "[]").map(
+      (item: any) => ({
+        ...item,
+        quantity: item.quantity || 1,
+      })
+    );
+    setCart(savedCart);
+  }, []);
+  useEffect(() => {
+    const newSubtotal = cart.reduce(
+      (acc, item) => acc + parseFloat(item.price) * item.quantity,
+      0
+    );
+    setSubtotal(newSubtotal);
+    setTotal(newSubtotal);
+  }, [cart]);
+  const updateQuantity = (id: string, operation: "increase" | "decrease") => {
+    const updatedCart = cart.map((item) => {
+      if (item.id === id) {
+        const newQuantity =
+          operation === "increase"
+            ? item.quantity + 1
+            : Math.max(item.quantity - 1, 1);
+        return { ...item, quantity: newQuantity };
       }
       return item;
     });
-    setCartItems(updatedCart);
+    setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-
-  const increaseQuantity = (productId: number) => {
-    const updatedCart = cartItems.map((item) => {
-      if (item.id === productId) {
-        return { ...item, quantity: item.quantity + 1 };
-      }
-      return item;
-    });
-    setCartItems(updatedCart);
+  const deleteFromCart = (product: {
+    id: string;
+    name: string;
+    price: string;
+    image: string;
+  }) => {
+    const updatedCart = cart.filter((item) => item.id !== product.id);
+    setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-
-  const calculateTotal = () => {
-    return cartItems
-      .reduce((total, item) => total + item.price * item.quantity, 0)
-      .toFixed(2);
-  };
-
   return (
-    <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 mb-16">
-      <div className="md:col-span-2">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6">Your Cart</h1>
-        <div className="grid grid-cols-1 gap-6">
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className="border p-4 rounded shadow-lg flex flex-col sm:flex-row gap-6 items-center"
+    <>
+      <section className="w-full h-[765px] absolute top-[570px] flex flex-col justify-between"></section>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[40px] h-[800px] md:h-[1000px] pt-36 md:pt-40 lg:px-4 px-3 md:px-16 w-full bg-black lg:pt-52 xl:px-24 lg:pl-11">
+        <div>
+          <h1 className="md:text-3xl text-[25px] font-bold mb-4 font-roboto text-white/50">
+            My Cart
+          </h1>
+          <div className="border-b-[1px] border-white/20 w-full mx-auto"></div>
+          <CartSideMenu
+            products={cart}
+            isOpen={false}
+            onClose={() => {}}
+            onAddToCart={() => {}}
+            onDelete={deleteFromCart}
+          />
+          <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
+            {cart.length === 0 ? (
+              <p className="text-center text-gray-500">
+                No products in the cart
+              </p>
+            ) : (
+              cart.map((product) => (
+                <div key={product.id} className="flex flex-col">
+                  <div className="flex items-center justify-between gap-[20px] py-4">
+                    <div className="flex justify-center items-center border-[1px] border-white/30 md:h-[80px] md:w-[100px] h-[50px] w-[60px]">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        height={60}
+                        width={60}
+                        className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
+                      />
+                    </div>
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex flex-col">
+                        <h3 className="md:text-[20px] text-[14px] leading-[15px] font-roboto text-white font-semibold w-[70px] sm:w-[120px] md:w-[150px] md:leading-[23px] xl:w-[200px]">
+                          {product.name}
+                        </h3>
+                        <p className=" text-[12px] md:text-[18px] font-roboto font-normal text-white/45">
+                          ${product.price}
+                        </p>
+                      </div>
+                      <div className="flex justify-between items-center border-[1px] border-white/25 md:px-3 px-1 md:w-[100px] w-[70px] md:h-[30px] h-[25px]">
+                        <RiSubtractLine
+                          onClick={() => updateQuantity(product.id, "decrease")}
+                          className="md:h-4 md:w-5 h-3 w-3  text-white cursor-pointer"
+                        />
+                        <p className="md:text-[18px] text-[12px] font-roboto text-white/80 font-medium">
+                          {product.quantity}
+                        </p>
+                        <IoMdAdd
+                          onClick={() => updateQuantity(product.id, "increase")}
+                          className="md:h-4 md:w-5 h-3 w-3 text-white cursor-pointer"
+                        />
+                      </div>
+                      <p className="text-white font-roboto md:text-[18px] text-[12px] font-medium">
+                        ${parseFloat(product.price) * product.quantity}
+                      </p>
+                      <FaTrash
+                        onClick={() => deleteFromCart(product)}
+                        className="text-btnBackground md:h-4 md:w-4 w-3 h-3 cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                  <div className="border-b-[1px] border-white/20 w-full"></div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+        <div className="flex flex-col md:mx-auto">
+          <h3 className="md:text-3xl text-[25px] font-bold mb-4 font-roboto text-white/50">
+            Order Summary
+          </h3>
+          <div className="border-b-[1px] border-white/20 w-full lg:w-[400px] md:w-[650px]"></div>
+          <div className="flex justify-between items-center mt-6 w-full lg:w-[400px] md:w-[650px]">
+            <p className="text-white/50 font-roboto text-[14px] md:text-[20px] font-normal">
+              Subtotal
+            </p>
+            <p className="text-white/50 font-roboto text-[14px] md:text-[20px] font-normal">
+              ${subtotal.toFixed(2)}
+            </p>
+          </div>
+          <div className="border-b-[1px] border-white/20 w-full lg:w-[400px] md:w-[650px] mt-3"></div>
+          <div className="flex justify-between items-center mt-6 w-full  lg:w-[400px] md:w-[650px]">
+            <p className="text-white/50 font-roboto text-[14px] md:text-[20px] font-normal">
+              Total
+            </p>
+            <p className="text-white/50 font-roboto text-[14px] md:text-[20px] font-normal">
+              ${total.toFixed(2)}
+            </p>
+          </div>
+          <button className=" lg:w-[400px] md:w-[650px] w-full h-[30px] md:h-[40px] bg-btnBackground hover:bg-hoverBtnBackground px-4 py-2 flex justify-center items-center mt-3 rounded-[2px]">
+            <Link
+              href="/checkout"
+              className="text-white font-medium font-roboto text-[14px] md:text-[16px]"
             >
-              <Image
-                src={item.image}
-                alt={item.name}
-                height={200}
-                width={200}
-                className="w-32 h-32 object-cover mb-2 rounded"
-              />
-              <div className="flex-grow">
-                <h2 className="font-semibold text-lg md:text-xl">
-                  {item.name}
-                </h2>
-                <p className="text-base md:text-lg mt-2">
-                  Price: <span className="text-orange-700">${item.price}</span>
-                </p>
-                <p className="text-sm md:text-md mt-1 flex gap-2 items-center">
-                  Quantity:
-                  <button
-                    onClick={() => decreaseQuantity(item.id)}
-                    className="bg-orange-700 text-white px-2 pb-1 hover:bg-orange-600 rounded text-sm"
-                  >
-                    -
-                  </button>
-                  {item.quantity}
-                  <button
-                    onClick={() => increaseQuantity(item.id)}
-                    className="bg-orange-700 text-white px-2 hover:bg-orange-600 rounded text-sm"
-                  >
-                    +
-                  </button>
-                </p>
-              </div>
-              <button
-                onClick={() => removeItemFromCart(item.id)}
-                className="bg-orange-700 border-2 border-orange-700 text-white px-3 py-1 rounded flex items-center h-10 hover:bg-transparent hover:text-orange-700"
-              >
-                <FaTrash className="text-lg" />
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="border p-6 rounded shadow-lg mt-8 md:mt-14 bg-white">
-        <h2 className="text-xl md:text-2xl font-bold mb-6 text-orange-950 border-b border-orange-950 pb-2">
-          Order Summary
-        </h2>
-        <ul className="space-y-4 md:space-y-6 text-orange-950">
-          {cartItems.map((item) => (
-            <li key={item.id} className="flex justify-between hover:underline">
-              <span>
-                {item.name} (x{item.quantity})
-              </span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="border-t mt-4 pt-4 flex justify-between text-lg font-semibold text-orange-950">
-          <span>Total:</span>
-          <span>${calculateTotal()}</span>
-        </div>
-
-        <div className="mt-6 flex flex-col lg:flex-row sm:flex-row md:flex-col gap-4 items-center justify-center">
-          <button className="bg-orange-700 border-2 border-orange-700 text-white px-4 py-2 rounded hover:bg-transparent hover:text-orange-950 font-bold">
-            Place Order
+              Checkout
+            </Link>
           </button>
-          <Link href="/products">
-            <button className="bg-transparent border-2 border-orange-700 text-orange-950 hover:text-white px-4 py-2 rounded hover:bg-orange-700 font-bold">
-              Continue Shopping
-            </button>
-          </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default AddToCart;
+export default Cart;

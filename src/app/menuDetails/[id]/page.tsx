@@ -9,32 +9,31 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-// import { GoHeart } from "react-icons/go";
-// import {
-//   addToWishlist,
-//   removeFromWishlist,
-// } from "@/app/utils/localStorageHelper";
+import { GoHeart } from "react-icons/go";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "@/app/utils/localStorageHelper";
+import CardsSlider from "@/app/Components/Slider";
 interface Props {
   params: {
     id: string;
   };
 }
 const MenuDetails: React.FC<Props> = ({ params }) => {
-  // const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
-  // const [showPopup, setShowPopup] = useState(false);
-
-  // const handleAddToWishlist = () => {
-  //   const item = { id, name, image, price, discount, stock };
-  //   addToWishlist(item);
-  //   setIsAddedToWishlist(true);
-  //   setShowPopup(true);
-  //   setTimeout(() => setShowPopup(false), 2000);
-  // };
-
-  // const handleRemoveFromWishlist = () => {
-  //   removeFromWishlist(id);
-  //   setIsAddedToWishlist(false);
-  // };
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const handleAddToWishlist = () => {
+    const item = { id, name, image, price, discount, stock };
+    addToWishlist(item);
+    setIsAddedToWishlist(true);
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 2000);
+  };
+  const handleRemoveFromWishlist = () => {
+    removeFromWishlist(id);
+    setIsAddedToWishlist(false);
+  };
   const [count, setCount] = useState<number>(1);
   const handleIncrease = () => {
     setCount(count + 1);
@@ -156,22 +155,19 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
             </div>
             <div className="lg:w-[400px] md:w-[360px] xxl:w-[515px] border-b-[0.5px] border-white/15 md:my-2 lg:my-4 my-4"></div>
             <div
-              // onClick={
-              //   isAddedToWishlist
-              //     ? handleRemoveFromWishlist
-              //     : handleAddToWishlist
-              // }
+              onClick={
+                isAddedToWishlist
+                  ? handleRemoveFromWishlist
+                  : handleAddToWishlist
+              }
               className="flex justify-start gap-[5px] items-center lg:mt-5"
             >
               <IoMdHeartEmpty
-                className="h-5 w-5 xxl:h-6 xxl:w-6 text-white cursor-pointer"
-                // className={`h-5 w-5 xxl:h-6 xxl:w-6 text-white cursor-pointer
+                className={`h-5 w-5 xxl:h-6 xxl:w-6 text-white cursor-pointer
 
-                //   ${
-                //   isAddedToWishlist ? "text-red-500" : "text-white"
-                // }
+                  ${isAddedToWishlist ? "text-red-500" : "text-white"}
 
-                // `}
+                `}
               />
               <Link
                 href="/wishlist"
@@ -239,6 +235,17 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="mt-44">
+          <div className="flex flex-col gap-y-[5px] ml-5">
+            <p className="xl:text-[18px] md:text-[15px] text-[14px] mb-[-20px] lg:mb-[-10px] md:mb-[-10px] font-greatVibes text-btnBackground font-normal ">
+              You might also like
+            </p>
+            <h1 className="text-[35px] font-poppins font-bold text-white ">
+              You Might Also Like
+            </h1>
+          </div>
+          <CardsSlider />
         </div>
       </section>
     </>
