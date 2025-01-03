@@ -105,7 +105,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
           >
             This blog dives into easy to follow recipes that are perfect for
             busy individuals. Learn how to prepare hearty breakfasts, fulfilling
-            lunches, and simple dinners all in under 5 minutes. Whether you're a
+            lunches, and simple dinners all in under 5 minutes. Whether you are a
             working professional, a student, or a parent, these time saving
             recipes will fit seamlessly into your schedule while delivering
             mouthwatering flavors

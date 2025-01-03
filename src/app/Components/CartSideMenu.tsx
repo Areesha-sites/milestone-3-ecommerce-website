@@ -30,9 +30,7 @@ const CartSideMenu = ({
   isOpen,
   onClose,
   onDelete,
-  onIncreaseQuantity,
-  onDecreaseQuantity,
-  totalPrice
+
   
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);

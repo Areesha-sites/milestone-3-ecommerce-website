@@ -69,7 +69,7 @@ const Contact = () => {
               ></div>
               <p className="text-white/70 md:text-[12px] lg:text-[14px] text-[12px] xl:text-[14px] md:w-[200px] font-roboto font-normal xl:w-[500px] lg:w-[350px] xxl:text-[16px]">
                 For immediate assistance, call our support team at
-                [+62831-2864-3491] available from 9 AM to 9 PM."
+                [+62831-2864-3491] available from 9 AM to 9 PM.
               </p>
             </div>
             <div className="grid grid-cols-2 md:gap-[15px] pt-11">
