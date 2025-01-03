@@ -6,24 +6,23 @@ import Image from "next/image";
 import { RiSubtractLine } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
+type CartItem = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+};
 const Cart = () => {
-  const [cart, setCart] = useState<
-    {
-      id: string;
-      name: string;
-      price: number;
-      image: string;
-      quantity: number;
-    }[]
-  >([]);
-  const [subtotal, setSubtotal] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [cart, setCart] = useState<CartItem[]>([]);
+const [subtotal, setSubtotal] = useState(0);
+const [total, setTotal] = useState(0);
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
-      const parsedCart = JSON.parse(savedCart).map((item:any) => ({
+      const parsedCart = JSON.parse(savedCart).map((item: CartItem) => ({
         ...item,
-        price: parseFloat(item.price), 
+        price: parseFloat(item.price.toString()),
         quantity: item.quantity || 1,
       }));
       setCart(parsedCart);
@@ -31,18 +30,18 @@ const Cart = () => {
   }, []);
   useEffect(() => {
     const newSubtotal = cart.reduce(
-      (acc, item) => acc + item.price * item.quantity, 
+      (acc, item) => acc + item.price * item.quantity,
       0
     );
     setSubtotal(newSubtotal);
     setTotal(newSubtotal);
   }, [cart]);
-const onIncreaseQuantity = (id: string) => {
-  updateQuantity(id, "increase")
-}
-const onDecreaseQuantity = (id: string) => {
-  updateQuantity(id, "decrease")
-}
+  const onIncreaseQuantity = (id: string) => {
+    updateQuantity(id, "increase");
+  };
+  const onDecreaseQuantity = (id: string) => {
+    updateQuantity(id, "decrease");
+  };
   const updateQuantity = (id: string, operation: "increase" | "decrease") => {
     const updatedCart = cart.map((item) => {
       if (item.id === id) {
@@ -60,7 +59,7 @@ const onDecreaseQuantity = (id: string) => {
   const deleteFromCart = (product: {
     id: string;
     name: string;
-    price: number;  // Change this to 'number'
+    price: number;
     image: string;
   }) => {
     const updatedCart = cart.filter((item) => item.id !== product.id);
@@ -77,33 +76,34 @@ const onDecreaseQuantity = (id: string) => {
           </h1>
           <div className="border-b-[1px] border-white/20 w-full mx-auto"></div>
           <CartSideMenu
-  products={cart}  // cart is now correctly typed with price as number
-  isOpen={false}
-  onClose={() => {}}
-  onAddToCart={() => {}}
-  onDelete={deleteFromCart}
-  onIncreaseQuantity={(product) => onIncreaseQuantity(product.id)}  // Pass product object
-  onDecreaseQuantity={(product) => onDecreaseQuantity(product.id)}  // Pass product object
-  totalPrice={total}  // total is a number
-/>       <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
+            products={cart}
+            isOpen={false}
+            onClose={() => {}}
+            onAddToCart={() => {}}
+            onDelete={deleteFromCart}
+            onIncreaseQuantity={(product) => onIncreaseQuantity(product.id)}
+            onDecreaseQuantity={(product) => onDecreaseQuantity(product.id)}
+            totalPrice={total}
+          />{" "}
+          <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
             {cart.length === 0 ? (
               <p className="text-center text-gray-500">
                 No products in the cart
               </p>
-              ) : (
-                cart.map((product) => (
-                  <div key={product.id} className="flex flex-col">
-                    <div className="flex items-center justify-between gap-[20px] py-4">
-                      <div className="flex justify-center items-center border-[1px] border-white/30 md:h-[80px] md:w-[100px] h-[50px] w-[60px]">
-                        <Image
-                          src={product.image}
-                          alt={product.name}
-                          height={60}
-                          width={60}
-                          className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
-                        />
-                      </div>
-                      <div className="flex justify-between items-center w-full">
+            ) : (
+              cart.map((product) => (
+                <div key={product.id} className="flex flex-col">
+                  <div className="flex items-center justify-between gap-[20px] py-4">
+                    <div className="flex justify-center items-center border-[1px] border-white/30 md:h-[80px] md:w-[100px] h-[50px] w-[60px]">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        height={60}
+                        width={60}
+                        className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
+                      />
+                    </div>
+                    <div className="flex justify-between items-center w-full">
                       <div className="flex flex-col">
                         <h3 className="md:text-[20px] text-[14px] leading-[15px] font-roboto text-white font-semibold w-[70px] sm:w-[120px] md:w-[150px] md:leading-[23px] xl:w-[200px]">
                           {product.name}
@@ -114,20 +114,20 @@ const onDecreaseQuantity = (id: string) => {
                       </div>
                       <div className="flex justify-between items-center border-[1px] border-white/25 md:px-3 px-1 md:w-[100px] w-[70px] md:h-[30px] h-[25px]">
                         <RiSubtractLine
-                         onClick={() => onDecreaseQuantity(product.id)}
+                          onClick={() => onDecreaseQuantity(product.id)}
                           className="md:h-4 md:w-5 h-3 w-3  text-white cursor-pointer"
                         />
                         <p className="md:text-[18px] text-[12px] font-roboto text-white/80 font-medium">
                           {product.quantity}
                         </p>
                         <IoMdAdd
-                       onClick={() => onIncreaseQuantity(product.id)}
+                          onClick={() => onIncreaseQuantity(product.id)}
                           className="md:h-4 md:w-5 h-3 w-3 text-white cursor-pointer"
                         />
                       </div>
                       <p className="text-white font-roboto md:text-[18px] text-[12px] font-medium">
-  ${(product.price * product.quantity).toFixed(2)}
-</p>
+                        ${(product.price * product.quantity).toFixed(2)}
+                      </p>
                       <FaTrash
                         onClick={() => deleteFromCart(product)}
                         className="text-btnBackground md:h-4 md:w-4 w-3 h-3 cursor-pointer"
@@ -172,7 +172,7 @@ const onDecreaseQuantity = (id: string) => {
           </button>
         </div>
       </div>
-      </>
+    </>
   );
 };
 
