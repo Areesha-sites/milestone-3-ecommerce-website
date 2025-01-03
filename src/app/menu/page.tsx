@@ -29,7 +29,7 @@ const Menu = () => {
             data-aos-delay="200"
             className="uppercase xxl:text-[54px] xl:text-[48px] md:text-[38px] text-[28px] leading-[30px] font-bold font-poppins lg:text-[43px] text-center"
           >
-            Discover <span className="text-btnBackground">Flavors</span> You'll
+            Discover <span className="text-btnBackground">Flavors</span> You will
             Love
           </h1>
           <div

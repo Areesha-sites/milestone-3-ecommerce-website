@@ -224,7 +224,7 @@ const Faqs = () => {
                     Can I book a table through the website?
                   </h1>
                   <p className="text-white/50  xxl:text-[16px]  text-[12px] lg:text-[14px] font-roboto">
-                    Yes, you can book a table using the 'Reservations' section
+                    Yes, you can book a table using the Reservations section
                     on our website.
                   </p>
                 </div>

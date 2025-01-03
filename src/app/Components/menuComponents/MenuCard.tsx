@@ -12,6 +12,15 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "@/app/utils/localStorageHelper";
+interface Product {
+  id: string,
+  name: string,
+   image: string,
+   price: number,
+   discount: string,
+   stock: number,
+   quantity?: number
+}
 const MenuCard = ({
   id,
   image,
@@ -19,11 +28,11 @@ const MenuCard = ({
   price,
   discount,
   stock,
-}: menuCardsPropsTypes) => {
-  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+}: Product) => {
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem("cart");
@@ -34,14 +43,14 @@ const MenuCard = ({
       setCartItems([]);
     }
   }, []);
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item) => item.name === product.name
     );
 
     if (existingProductIndex >= 0) {
-      updatedCart[existingProductIndex].quantity += 1;
+      updatedCart[existingProductIndex].quantity! += 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
@@ -51,32 +60,31 @@ const MenuCard = ({
     setCartItems(updatedCart);
     setIsSideMenuOpen(true);
   };
-  const handleDeleteFromCart = (product: any) => {
+  const handleDeleteFromCart = (product: Product) => {
     const updatedCart = cartItems.filter(
-      (item: any) => item.name !== product.name
+      (item: Product) => item.name !== product.name
     );
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
   };
-  const handleIncreaseQuantity = (product: any) => {
+  const handleIncreaseQuantity = (product: Product) => {
     const updatedCart = [...cartItems];
     const productIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item: Product) => item.name === product.name
     );
     if (productIndex >= 0) {
-      updatedCart[productIndex].quantity += 1;
+      updatedCart[productIndex].quantity! += 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
   };
-
-  const handleDecreaseQuantity = (product: any) => {
+  const handleDecreaseQuantity = (product: Product) => {
     const updatedCart = [...cartItems];
     const productIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item: Product) => item.name === product.name
     );
-    if (productIndex >= 0 && updatedCart[productIndex].quantity > 1) {
-      updatedCart[productIndex].quantity -= 1;
+    if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
+      updatedCart[productIndex].quantity! -= 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
@@ -84,13 +92,12 @@ const MenuCard = ({
   const closeSideMenu = () => {
     setIsSideMenuOpen(false);
   };
-
   const goToCart = () => {
     setIsSideMenuOpen(false);
   };
   const calculateTotalPrice = () => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total, item) => total + item.price * item.quantity!,
       0
     );
   };
@@ -151,7 +158,6 @@ Toggle modal
         </div>
     </div>
 </div>
-
             </div>
           )}
           <div className="flex justify-center items-center h-48 hover:bg-yellow-500 transition duration-300 rounded-[20px] ">

@@ -40,23 +40,18 @@ const PopularCard = ({
     const existingProductIndex = updatedCart.findIndex(
       (item: any) => item.name === product.name
     );
-  
     if (existingProductIndex >= 0) {
       updatedCart[existingProductIndex].quantity += 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-  
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
-    setIsSideMenuOpen(true); // This triggers the side menu to open
-  
-    // Ensure this is immediately reflecting in the UI
+    setIsSideMenuOpen(true); 
     setTimeout(() => {
-      console.log("Side menu open:", isSideMenuOpen); // Check after set state
-    }, 100); // Timeout to allow the state to propagate
+      console.log("Side menu open:", isSideMenuOpen);
+    }, 100); 
   };
-  
   const handleDeleteFromCart = (product: any) => {
     const updatedCart = cartItems.filter(
       (item: any) => item.name !== product.name
@@ -75,7 +70,6 @@ const PopularCard = ({
       setCartItems(updatedCart);
     }
   };
-
   const handleDecreaseQuantity = (product: any) => {
     const updatedCart = [...cartItems];
     const productIndex = updatedCart.findIndex(
@@ -90,7 +84,6 @@ const PopularCard = ({
   const closeSideMenu = () => {
     setIsSideMenuOpen(false);
   };
-
   const goToCart = () => {
     setIsSideMenuOpen(false);
   };
@@ -197,7 +190,7 @@ const PopularCard = ({
         </div>
         <CartSideMenu
   products={cartItems}
-  isOpen={isSideMenuOpen} // This will trigger the sidebar opening
+  isOpen={isSideMenuOpen} 
   onClose={closeSideMenu}
   onAddToCart={goToCart}
   onDelete={handleDeleteFromCart}

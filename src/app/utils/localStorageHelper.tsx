@@ -1,10 +1,17 @@
-export const getWishlist = () => {
+
+export interface WishlistItem {
+  id: string,
+  name: string,
+  image: string,
+  price: number
+}
+export const getWishlist = (): WishlistItem[] => {
   return JSON.parse(localStorage.getItem("wishlist")) || [];
 };
 
-export const addToWishlist = (item: any) => {
+export const addToWishlist = (item: WishlistItem) => {
   const wishlist = getWishlist();
-  const alreadyInWishlist = wishlist.find((i: any) => i.id === item.id);
+  const alreadyInWishlist = wishlist.find((i: WishlistItem) => i.id === item.id);
 
   if (!alreadyInWishlist) {
     wishlist.push(item);
@@ -12,8 +19,8 @@ export const addToWishlist = (item: any) => {
   }
 };
 
-export const removeFromWishlist = (id: any) => {
+export const removeFromWishlist = (id: string) => {
   let wishlist = getWishlist();
-  wishlist = wishlist.filter((item: any) => item.id !== id);
+  wishlist = wishlist.filter((item: WishlistItem) => item.id !== id);
   localStorage.setItem("wishlist", JSON.stringify(wishlist));
 };

@@ -4,14 +4,13 @@ import { LiaMedalSolid } from "react-icons/lia";
 import { FaStarOfLife } from "react-icons/fa";
 import { GiHamburger } from "react-icons/gi";
 import Image from "next/image";
-
 export default function AnimatedGrid() {
-  const [experienceCount, setExperienceCount] = useState(0);
-  const [menuCount, setMenuCount] = useState(0);
-  const [orderCount, setOrderCount] = useState(0);
-
-  const gridRef = useRef(null);
+  const [experienceCount, setExperienceCount] = useState<number | string>(0);
+  const [menuCount, setMenuCount] = useState<number | string>(0);
+  const [orderCount, setOrderCount] = useState<number | string>(0);
+  const gridRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
+    const gridElement = gridRef.current; 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,18 +21,20 @@ export default function AnimatedGrid() {
       },
       { threshold: 0.5 }
     );
-
-    if (gridRef.current) {
-      observer.observe(gridRef.current);
+    if (gridElement) {
+      observer.observe(gridElement);
     }
-
     return () => {
-      if (gridRef.current) {
-        observer.unobserve(gridRef.current);
+      if (gridElement) {
+        observer.unobserve(gridElement);
       }
     };
   }, []);
-  const startCounting = (setter: any, target: any, addK = false) => {
+  const startCounting = (
+    setter: React.Dispatch<React.SetStateAction<number | string>>, 
+    target: number,
+    addK = false
+  ) => {
     let count = 0;
     const interval = setInterval(() => {
       count += Math.ceil(target / 50);

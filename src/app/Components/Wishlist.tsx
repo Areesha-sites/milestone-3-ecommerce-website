@@ -61,9 +61,9 @@ const Wishlist = () => {
             </h1>
             <div className="border-b-[4px] w-[100px] border-btnBackground"></div>
             <p className="text-white/70 xxl:text-[16px] text-[12px] lg:text-[14px] font-roboto font-normal xl:w-[800px] lg:w-[800px] md:w-[600px] text-center w-full">
-              At ChowChampl, we know how hard it is to pick just one dish. Now,
+              At ChowChamp, we know how hard it is to pick just one dish. Now,
               with our wishlist feature, you can save your favorite menu items
-              and come back to them whenever you're ready to indulge.
+              and come back to them whenever you are ready to indulge.
             </p>
             <div className="">
               <div className="flex items-center justify-between card-bg text-white xl:w-[1100px] md:w-[700px] lg:w-[900px] h-[70px] relative top-[20px] px-10 border-b-[1px] border-white/30 rounded-[4px]">

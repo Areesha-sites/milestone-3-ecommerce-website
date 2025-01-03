@@ -18,15 +18,15 @@ const Cart = () => {
   >([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-
   useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("cart") || "[]").map(
-      (item: any) => ({
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart).map((item: any) => ({
         ...item,
         quantity: item.quantity || 1,
-      })
-    );
-    setCart(savedCart);
+      }));
+      setCart(parsedCart);
+    }
   }, []);
   useEffect(() => {
     const newSubtotal = cart.reduce(
@@ -36,6 +36,7 @@ const Cart = () => {
     setSubtotal(newSubtotal);
     setTotal(newSubtotal);
   }, [cart]);
+
   const updateQuantity = (id: string, operation: "increase" | "decrease") => {
     const updatedCart = cart.map((item) => {
       if (item.id === id) {
@@ -60,10 +61,11 @@ const Cart = () => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
+
   return (
     <>
       <section className="w-full h-[765px] absolute top-[570px] flex flex-col justify-between"></section>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[40px]  h-auto pt-36 md:pt-40 lg:px-4 px-3 md:px-16 w-full bg-black lg:pt-52 xl:px-24 lg:pl-11">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[40px] h-auto pt-36 md:pt-40 lg:px-4 px-3 md:px-16 w-full bg-black lg:pt-52 xl:px-24 lg:pl-11">
         <div>
           <h1 className="md:text-3xl text-[25px] font-bold mb-4 font-roboto text-white/50">
             My Cart
@@ -71,7 +73,7 @@ const Cart = () => {
           <div className="border-b-[1px] border-white/20 w-full mx-auto"></div>
           <CartSideMenu
             products={cart}
-            isOpen={false}
+            isOpen={false} 
             onClose={() => {}}
             onAddToCart={() => {}}
             onDelete={deleteFromCart}
@@ -81,20 +83,20 @@ const Cart = () => {
               <p className="text-center text-gray-500">
                 No products in the cart
               </p>
-            ) : (
-              cart.map((product) => (
-                <div key={product.id} className="flex flex-col">
-                  <div className="flex items-center justify-between gap-[20px] py-4">
-                    <div className="flex justify-center items-center border-[1px] border-white/30 md:h-[80px] md:w-[100px] h-[50px] w-[60px]">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        height={60}
-                        width={60}
-                        className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
-                      />
-                    </div>
-                    <div className="flex justify-between items-center w-full">
+              ) : (
+                cart.map((product) => (
+                  <div key={product.id} className="flex flex-col">
+                    <div className="flex items-center justify-between gap-[20px] py-4">
+                      <div className="flex justify-center items-center border-[1px] border-white/30 md:h-[80px] md:w-[100px] h-[50px] w-[60px]">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          height={60}
+                          width={60}
+                          className="md:w-[70px] md:h-[70px] w-[50px] h-[50px] hover:scale-110 transition-all duration-300 ease-linear cursor-pointer"
+                        />
+                      </div>
+                      <div className="flex justify-between items-center w-full">
                       <div className="flex flex-col">
                         <h3 className="md:text-[20px] text-[14px] leading-[15px] font-roboto text-white font-semibold w-[70px] sm:w-[120px] md:w-[150px] md:leading-[23px] xl:w-[200px]">
                           {product.name}
@@ -163,7 +165,7 @@ const Cart = () => {
           </button>
         </div>
       </div>
-    </>
+      </>
   );
 };
 

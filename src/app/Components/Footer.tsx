@@ -45,10 +45,9 @@ const Footer = () => {
                 "Client Portal",
                 "Resources",
               ].map((link, index) => (
-                <li>
+                <li key={index}>
                   <Link
                     className="text-[14px] hover:text-white font-roboto"
-                    key={index}
                     href="#"
                   >
                     {link}
@@ -68,10 +67,9 @@ const Footer = () => {
                 "Marketing Glossar",
                 "UIPath",
               ].map((link, index) => (
-                <li>
+                <li key={index}>
                   <Link
                     className="text-[14px] hover:text-white font-roboto"
-                    key={index}
                     href="#"
                   >
                     {link}
@@ -84,15 +82,13 @@ const Footer = () => {
             <h4 className="text-white font-semibold font-roboto text-lg relative max-sm:cursor-pointer">
               Company
             </h4>
-
             <ul className="mt-6 space-y-3 text-gray-400 ">
               {["About us", "Careers", "Blog", "Portfolio", "  Events"].map(
                 (link, index) => (
-                  <li>
+                  <li key={index}>
                     <Link
                       href="#"
                       className="text-[14px] hover:text-white font-roboto"
-                      key={index}
                     >
                       {link}
                     </Link>
@@ -108,11 +104,10 @@ const Footer = () => {
             <ul className="mt-6 space-y-3 text-gray-400 ">
               {["FAQ", "Partners", "Sitemap", "Contact", "News"].map(
                 (link, index) => (
-                  <li>
+                  <li  key={index}>
                     <Link
                       href="#"
                       className="text-[14px] hover:text-white font-roboto"
-                      key={index}
                     >
                       {link}
                     </Link>

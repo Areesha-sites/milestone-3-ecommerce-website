@@ -6,31 +6,35 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { RiSubtractFill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
-
 interface Product {
-  id: number;
+  id: string;
   name: string;
   image: string;
-  price: number;
-  stock: number;
-  discount: number;
+  price: string;
+  stock?: number;
+  discount?: number;
   quantity: number; 
 }
-
 type CartSideMenuProps = {
-  products: Product[];
+  products: Product[]; // Ensure products is an array of Product
   isOpen: boolean;
   onClose: () => void;
   onAddToCart: (product: Product) => void;
   onDelete: (product: Product) => void;
+  onIncreaseQuantity: (product: Product) => void;
+  onDecreaseQuantity: (product: Product) => void;
+  totalPrice: number;
 };
-
 const CartSideMenu = ({
   products,
   isOpen,
   onClose,
   onAddToCart,
   onDelete,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  totalPrice
+  
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
@@ -38,7 +42,7 @@ const CartSideMenu = ({
     setCartProducts(products);
   }, [products]);
 
-  const handleIncrease = (id: number) => {
+  const handleIncrease = (id:string) => {
     setCartProducts((prev) =>
       prev.map((product) =>
         product.id === id
@@ -48,7 +52,7 @@ const CartSideMenu = ({
     );
   };
 
-  const handleDecrease = (id: number) => {
+  const handleDecrease = (id: string) => {
     setCartProducts((prev) =>
       prev.map((product) =>
         product.id === id && product.quantity > 1
@@ -60,7 +64,7 @@ const CartSideMenu = ({
 
   const calculateSubtotal = () => {
     return cartProducts.reduce(
-      (total, product) => total + product.price * product.quantity,
+      (total, product) => total + parseFloat(product.price) * product.quantity,
       0
     );
   };
@@ -142,7 +146,7 @@ const CartSideMenu = ({
                         />
                       </div>
                       <p className="text-white/50">
-                        Total: ${product.price * product.quantity}
+                        Total: ${parseFloat(product.price) * product.quantity}
                       </p>
                     </div>
                   </div>

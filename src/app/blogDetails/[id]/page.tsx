@@ -48,7 +48,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
             data-aos-delay="200"
             className="uppercase text-[38px] font-bold font-poppins w-[600px] mx-auto text-center leading-[50px]"
           >
-            This Page Doesn't Exist.
+            This Page Does not Exist.
           </h1>
           <div
             data-aos="fade-up"
@@ -91,7 +91,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
           >
             Fast & Flavorful:{" "}
             <span className="text-btnBackground"> 5-Minute</span> Meal Ideas
-            You'll Love
+            You will Love
           </h1>
           <div
             data-aos="fade-up"
@@ -349,7 +349,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
                     </p>
                     <p className="font-roboto text-[12px] lg:text-[14px] xxl:text-[16px] text-white/50 font-normal">
                       Craving a delicious homemade pizza? Check out my latest
-                      recipe for a classic Margherita pizza. I've included tips
+                      recipe for a classic Margherita pizza. I have included tips
                       on making your own dough and finding the freshest
                       ingredients.
                     </p>
@@ -429,7 +429,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
                   </p>
                   <p className="font-roboto text-[12px] lg:text-[14px] xxl:text-[16px] text-white/50 font-normal">
                     Just baked a batch of chocolate chip cookies using my
-                    grandma's secret recipe. They turned out amazing! Sharing
+                    grandmas secret recipe. They turned out amazing! Sharing
                     the recipe soon. Stay tuned!
                   </p>
                 </div>

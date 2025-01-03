@@ -7,9 +7,9 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Banner = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const handleSlideChanged = (swiper: any) => {
-    setActiveIndex(swiper.activeIndex);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const handleSlideChanged = () => {
+    setActiveIndex(activeIndex);
   };
   return (
     <>
@@ -25,7 +25,7 @@ const Banner = () => {
             clickable: true,
           }}
           navigation={true}
-          onChange={handleSlideChanged}
+         onSlideChange={handleSlideChanged}
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
