@@ -47,7 +47,7 @@ const PopularCard = ({
     console.log("Add to cart clicked");
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item: Product) => item.name === product.name
     );
     if (existingProductIndex >= 0) {
       updatedCart[existingProductIndex].quantity += 1;
