@@ -31,7 +31,7 @@ const BlogDetails: React.FC<Props> = ({ params }) => {
     });
   }, []);
   const { id } = params;
-  const product = blogsData.find((item: any) => item.id === id);
+  const product = blogsData.find((item) => item.id === id);
   if (!product) {
     return (
       <div className="bg-black w-full py-28 h-auto pt-52 px-14 text-white">

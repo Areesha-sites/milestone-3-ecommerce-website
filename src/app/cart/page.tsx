@@ -11,7 +11,7 @@ const Cart = () => {
     {
       id: string;
       name: string;
-      price: string;
+      price: number;
       image: string;
       quantity: number;
     }[]
@@ -21,8 +21,9 @@ const Cart = () => {
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
-      const parsedCart = JSON.parse(savedCart).map((item: any) => ({
+      const parsedCart = JSON.parse(savedCart).map((item:any) => ({
         ...item,
+        price: parseFloat(item.price), 
         quantity: item.quantity || 1,
       }));
       setCart(parsedCart);
@@ -30,7 +31,7 @@ const Cart = () => {
   }, []);
   useEffect(() => {
     const newSubtotal = cart.reduce(
-      (acc, item) => acc + parseFloat(item.price) * item.quantity,
+      (acc, item) => acc + item.price * item.quantity, 
       0
     );
     setSubtotal(newSubtotal);
@@ -60,7 +61,7 @@ const totalPrice = total.toFixed(2)
   const deleteFromCart = (product: {
     id: string;
     name: string;
-    price: string;
+    price: number;  // Change this to 'number'
     image: string;
   }) => {
     const updatedCart = cart.filter((item) => item.id !== product.id);
@@ -77,16 +78,15 @@ const totalPrice = total.toFixed(2)
           </h1>
           <div className="border-b-[1px] border-white/20 w-full mx-auto"></div>
           <CartSideMenu
-            products={cart}
-            isOpen={false} 
-            onClose={() => {}}
-            onAddToCart={() => {}}
-            onDelete={deleteFromCart}
-            onIncreaseQuantity={onIncreaseQuantity}
-            onDecreaseQuantity={onDecreaseQuantity}
-            totalPrice={totalPrice}
-          />
-          <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
+  products={cart}  // cart is now correctly typed with price as number
+  isOpen={false}
+  onClose={() => {}}
+  onAddToCart={() => {}}
+  onDelete={deleteFromCart}
+  onIncreaseQuantity={(product) => onIncreaseQuantity(product.id)}  // Pass product object
+  onDecreaseQuantity={(product) => onDecreaseQuantity(product.id)}  // Pass product object
+  totalPrice={total}  // total is a number
+/>       <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
             {cart.length === 0 ? (
               <p className="text-center text-gray-500">
                 No products in the cart
@@ -127,8 +127,8 @@ const totalPrice = total.toFixed(2)
                         />
                       </div>
                       <p className="text-white font-roboto md:text-[18px] text-[12px] font-medium">
-                        ${parseFloat(product.price) * product.quantity}
-                      </p>
+  ${(product.price * product.quantity).toFixed(2)}
+</p>
                       <FaTrash
                         onClick={() => deleteFromCart(product)}
                         className="text-btnBackground md:h-4 md:w-4 w-3 h-3 cursor-pointer"
