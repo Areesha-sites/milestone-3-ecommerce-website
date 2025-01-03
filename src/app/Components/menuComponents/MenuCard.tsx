@@ -16,9 +16,9 @@ interface Product {
   name: string,
    image: string,
    price: number,
-   discount: string,
-   stock: number,
-   quantity?: number
+   discount?: number,
+   stock?: number,
+   quantity: number
 }
 const MenuCard = ({
   id,
@@ -27,6 +27,7 @@ const MenuCard = ({
   price,
   discount,
   stock,
+  quantity
 }: Product) => {
   const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
   const [showPopup, setShowPopup] = useState<boolean>(false);
@@ -45,17 +46,16 @@ const MenuCard = ({
   const handleAddToCart = (product: Product) => {
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
-      (item) => item.name === product.name
+      (item) => item.id === product.id  // Use id for comparison
     );
-
+  
     if (existingProductIndex >= 0) {
-      updatedCart[existingProductIndex].quantity! += 1;
+      updatedCart[existingProductIndex].quantity = (updatedCart[existingProductIndex].quantity || 0) + 1;
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-
+  
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
     setCartItems(updatedCart);
     setIsSideMenuOpen(true);
   };
@@ -199,7 +199,7 @@ Toggle modal
             <div className="flex items-center justify-between">
               <button
                 onClick={() =>
-                  handleAddToCart({ image, name, price, discount, stock })
+                  handleAddToCart({ id, image, name, price, discount, stock, quantity })
                 }
                 className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
               >

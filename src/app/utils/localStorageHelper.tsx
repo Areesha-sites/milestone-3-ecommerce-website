@@ -6,9 +6,9 @@ export interface WishlistItem {
   price: number
 }
 export const getWishlist = (): WishlistItem[] => {
-  return JSON.parse(localStorage.getItem("wishlist")) || [];
-};
-
+  const wishlist = localStorage.getItem("wishlist");
+  return wishlist ? JSON.parse(wishlist) : []; 
+}
 export const addToWishlist = (item: WishlistItem) => {
   const wishlist = getWishlist();
   const alreadyInWishlist = wishlist.find((i: WishlistItem) => i.id === item.id);

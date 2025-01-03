@@ -9,7 +9,6 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-import { GoHeart } from "react-icons/go";
 import {
   addToWishlist,
   removeFromWishlist,
@@ -20,24 +19,37 @@ interface Props {
     id: string;
   };
 }
+interface Product {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+  discount?: string;
+  stock: string;
+ quantity?: number
+}
 const MenuDetails: React.FC<Props> = ({ params }) => {
-  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
+  const [count, setCount] = useState<number>(1);
   const handleAddToWishlist = () => {
-    const item = { id, name, image, price, discount, stock };
-    addToWishlist(item);
-    setIsAddedToWishlist(true);
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 2000);
+    if (product) {
+      const { id, name, image, price, discount } = product;
+      const item: Product = { id, name, image, price, discount, stock: product.stock }; // Add 'stock' or any other required property
+      addToWishlist(item);
+      setIsAddedToWishlist(true);
+      setTimeout(() => setIsAddedToWishlist(false), 2000);
+    }
   };
+
   const handleRemoveFromWishlist = () => {
     removeFromWishlist(id);
     setIsAddedToWishlist(false);
   };
-  const [count, setCount] = useState<number>(1);
+
   const handleIncrease = () => {
     setCount(count + 1);
   };
+
   const handleDecrease = () => {
     if (count > 1) {
       setCount(count - 1);
@@ -175,6 +187,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
               >
                 Add to Wishlist
               </Link>
+              
             </div>
             <div className="flex gap-[10px] mt-4">
               <p className="text-[15px] xxl:text-[17px] font-normal text-white font-roboto">

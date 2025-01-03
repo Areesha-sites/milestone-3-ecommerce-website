@@ -10,10 +10,10 @@ interface Product {
   id: string;
   name: string;
   image: string;
-  price: string;
+  price: number;
   stock?: number;
   discount?: number;
-  quantity: number; 
+  quantity: number;
 }
 type CartSideMenuProps = {
   products: Product[]; // Ensure products is an array of Product
@@ -30,8 +30,6 @@ const CartSideMenu = ({
   isOpen,
   onClose,
   onDelete,
-
-  
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
@@ -39,7 +37,7 @@ const CartSideMenu = ({
     setCartProducts(products);
   }, [products]);
 
-  const handleIncrease = (id:string) => {
+  const handleIncrease = (id: string) => {
     setCartProducts((prev) =>
       prev.map((product) =>
         product.id === id
@@ -61,7 +59,7 @@ const CartSideMenu = ({
 
   const calculateSubtotal = () => {
     return cartProducts.reduce(
-      (total, product) => total + parseFloat(product.price) * product.quantity,
+      (total, product) => total + product.price * product.quantity, // No need for parseFloat
       0
     );
   };
@@ -143,7 +141,8 @@ const CartSideMenu = ({
                         />
                       </div>
                       <p className="text-white/50">
-                        Total: ${parseFloat(product.price) * product.quantity}
+                        Total: ${product.price * product.quantity}{" "}
+                        {/* No need for parseFloat */}
                       </p>
                     </div>
                   </div>
