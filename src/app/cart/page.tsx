@@ -43,7 +43,6 @@ const onIncreaseQuantity = (id: string) => {
 const onDecreaseQuantity = (id: string) => {
   updateQuantity(id, "decrease")
 }
-const totalPrice = total.toFixed(2)
   const updateQuantity = (id: string, operation: "increase" | "decrease") => {
     const updatedCart = cart.map((item) => {
       if (item.id === id) {
