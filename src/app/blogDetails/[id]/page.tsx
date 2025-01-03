@@ -16,10 +16,11 @@ import Link from "next/link";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+interface Params {
+  id: string
+}
 interface Props {
-  params: {
-    id: string;
-  };
+  params: Params
 }
 const BlogDetails: React.FC<Props> = ({ params }) => {
   useEffect(() => {
