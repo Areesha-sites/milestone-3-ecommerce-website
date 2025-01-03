@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { FaTrash } from "react-icons/fa";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { RiSubtractFill } from "react-icons/ri";
 import { IoMdAdd } from "react-icons/io";
+
 interface Product {
   id: number;
   name: string;
@@ -15,6 +16,7 @@ interface Product {
   discount: number;
   quantity: number; 
 }
+
 type CartSideMenuProps = {
   products: Product[];
   isOpen: boolean;
@@ -22,6 +24,7 @@ type CartSideMenuProps = {
   onAddToCart: (product: Product) => void;
   onDelete: (product: Product) => void;
 };
+
 const CartSideMenu = ({
   products,
   isOpen,
@@ -30,9 +33,11 @@ const CartSideMenu = ({
   onDelete,
 }: CartSideMenuProps) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     setCartProducts(products);
   }, [products]);
+
   const handleIncrease = (id: number) => {
     setCartProducts((prev) =>
       prev.map((product) =>
@@ -42,6 +47,7 @@ const CartSideMenu = ({
       )
     );
   };
+
   const handleDecrease = (id: number) => {
     setCartProducts((prev) =>
       prev.map((product) =>
@@ -51,13 +57,16 @@ const CartSideMenu = ({
       )
     );
   };
+
   const calculateSubtotal = () => {
     return cartProducts.reduce(
       (total, product) => total + product.price * product.quantity,
       0
     );
   };
+
   const [isVisible, setIsVisible] = useState(isOpen);
+
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
@@ -76,7 +85,7 @@ const CartSideMenu = ({
     >
       <div
         className={`bg-black border-[1px] border-btnBackground py-6 pl-6 pr-3 rounded-l-lg h-full transform transition-all duration-500 overflow-y-auto ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "translate-x-0" : "translate-x-[100%]"
         }`}
       >
         <div className="flex flex-col">

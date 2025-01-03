@@ -94,3 +94,11 @@ export interface AddToCartPropsTypes {
   description?: string;
   quantity: number;
 }
+export interface WishlistItem {
+  id: string;
+  image: string;
+  name: string;
+  price: number;
+  discount: string;
+  stock: string;
+}

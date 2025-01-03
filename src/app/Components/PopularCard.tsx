@@ -49,9 +49,14 @@ const PopularCard = ({
   
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
-    setIsSideMenuOpen(true); // Ensure this is triggering
-    console.log("Side menu open:", isSideMenuOpen);
+    setIsSideMenuOpen(true); // This triggers the side menu to open
+  
+    // Ensure this is immediately reflecting in the UI
+    setTimeout(() => {
+      console.log("Side menu open:", isSideMenuOpen); // Check after set state
+    }, 100); // Timeout to allow the state to propagate
   };
+  
   const handleDeleteFromCart = (product: any) => {
     const updatedCart = cartItems.filter(
       (item: any) => item.name !== product.name
@@ -192,7 +197,7 @@ const PopularCard = ({
         </div>
         <CartSideMenu
   products={cartItems}
-  isOpen={isSideMenuOpen} // Ensure this matches state
+  isOpen={isSideMenuOpen} // This will trigger the sidebar opening
   onClose={closeSideMenu}
   onAddToCart={goToCart}
   onDelete={handleDeleteFromCart}

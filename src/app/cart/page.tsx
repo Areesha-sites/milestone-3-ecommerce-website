@@ -63,7 +63,7 @@ const Cart = () => {
   return (
     <>
       <section className="w-full h-[765px] absolute top-[570px] flex flex-col justify-between"></section>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[40px] h-[800px] md:h-[1000px] pt-36 md:pt-40 lg:px-4 px-3 md:px-16 w-full bg-black lg:pt-52 xl:px-24 lg:pl-11">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-[20px] lg:gap-x-[40px]  h-auto pt-36 md:pt-40 lg:px-4 px-3 md:px-16 w-full bg-black lg:pt-52 xl:px-24 lg:pl-11">
         <div>
           <h1 className="md:text-3xl text-[25px] font-bold mb-4 font-roboto text-white/50">
             My Cart
