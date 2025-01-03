@@ -29,7 +29,6 @@ const CartSideMenu = ({
   products,
   isOpen,
   onClose,
-  onAddToCart,
   onDelete,
   onIncreaseQuantity,
   onDecreaseQuantity,

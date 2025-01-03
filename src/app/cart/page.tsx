@@ -36,7 +36,13 @@ const Cart = () => {
     setSubtotal(newSubtotal);
     setTotal(newSubtotal);
   }, [cart]);
-
+const onIncreaseQuantity = (id: string) => {
+  updateQuantity(id, "increase")
+}
+const onDecreaseQuantity = (id: string) => {
+  updateQuantity(id, "decrease")
+}
+const totalPrice = total.toFixed(2)
   const updateQuantity = (id: string, operation: "increase" | "decrease") => {
     const updatedCart = cart.map((item) => {
       if (item.id === id) {
@@ -61,7 +67,6 @@ const Cart = () => {
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
-
   return (
     <>
       <section className="w-full h-[765px] absolute top-[570px] flex flex-col justify-between"></section>
@@ -77,6 +82,9 @@ const Cart = () => {
             onClose={() => {}}
             onAddToCart={() => {}}
             onDelete={deleteFromCart}
+            onIncreaseQuantity={onIncreaseQuantity}
+            onDecreaseQuantity={onDecreaseQuantity}
+            totalPrice={totalPrice}
           />
           <div className="space-y-4 lg:mt-5 mt-3 flex flex-col">
             {cart.length === 0 ? (
@@ -107,14 +115,14 @@ const Cart = () => {
                       </div>
                       <div className="flex justify-between items-center border-[1px] border-white/25 md:px-3 px-1 md:w-[100px] w-[70px] md:h-[30px] h-[25px]">
                         <RiSubtractLine
-                          onClick={() => updateQuantity(product.id, "decrease")}
+                         onClick={() => onDecreaseQuantity(product.id)}
                           className="md:h-4 md:w-5 h-3 w-3  text-white cursor-pointer"
                         />
                         <p className="md:text-[18px] text-[12px] font-roboto text-white/80 font-medium">
                           {product.quantity}
                         </p>
                         <IoMdAdd
-                          onClick={() => updateQuantity(product.id, "increase")}
+                       onClick={() => onIncreaseQuantity(product.id)}
                           className="md:h-4 md:w-5 h-3 w-3 text-white cursor-pointer"
                         />
                       </div>
