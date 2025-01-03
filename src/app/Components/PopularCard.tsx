@@ -12,6 +12,15 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "@/app/utils/localStorageHelper";
+interface Product {
+  id: string,
+  name: string,
+   image: string,
+   price: number,
+   discount?: number,
+   stock?: number,
+   quantity: number
+}
 const PopularCard = ({
   id,
   image,
@@ -19,11 +28,12 @@ const PopularCard = ({
   price,
   discount,
   stock,
-}: menuCardsPropsTypes) => {
-  const [isAddedToWishlist, setIsAddedToWishlist] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-  const [cartItems, setCartItems] = useState<any[]>([]);
+  quantity
+}: Product) => {
+  const [isAddedToWishlist, setIsAddedToWishlist] = useState<boolean>(false);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState<boolean>(false);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem("cart");
@@ -34,7 +44,7 @@ const PopularCard = ({
       setCartItems([]);
     }
   }, []);
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     console.log("Add to cart clicked");
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
@@ -52,31 +62,31 @@ const PopularCard = ({
       console.log("Side menu open:", isSideMenuOpen);
     }, 100); 
   };
-  const handleDeleteFromCart = (product: any) => {
+  const handleDeleteFromCart = (product: Product) => {
     const updatedCart = cartItems.filter(
-      (item: any) => item.name !== product.name
+      (item: Product) => item.name !== product.name
     );
     localStorage.setItem("cart", JSON.stringify(updatedCart));
     setCartItems(updatedCart);
   };
-  const handleIncreaseQuantity = (product: any) => {
+  const handleIncreaseQuantity = (product: Product) => {
     const updatedCart = [...cartItems];
     const productIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item: Product) => item.name === product.name
     );
     if (productIndex >= 0) {
-      updatedCart[productIndex].quantity += 1;
+      updatedCart[productIndex].quantity! += 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
   };
-  const handleDecreaseQuantity = (product: any) => {
+  const handleDecreaseQuantity = (product: Product) => {
     const updatedCart = [...cartItems];
     const productIndex = updatedCart.findIndex(
-      (item: any) => item.name === product.name
+      (item: Product) => item.name === product.name
     );
-    if (productIndex >= 0 && updatedCart[productIndex].quantity > 1) {
-      updatedCart[productIndex].quantity -= 1;
+    if (productIndex >= 0 && updatedCart[productIndex].quantity! > 1) {
+      updatedCart[productIndex].quantity! -= 1;
       localStorage.setItem("cart", JSON.stringify(updatedCart));
       setCartItems(updatedCart);
     }
@@ -170,7 +180,7 @@ const PopularCard = ({
             <div className="flex items-center justify-between">
               <button
                 onClick={() =>
-                  handleAddToCart({ image, name, price, discount, stock })
+                  handleAddToCart({ id, image, name, price, discount, stock, quantity })
                 }
                 className="flex items-center rounded-md bg-btnBackground px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-hoverBtnBackground font-roboto"
               >
@@ -189,15 +199,15 @@ const PopularCard = ({
           </div>
         </div>
         <CartSideMenu
-  products={cartItems}
-  isOpen={isSideMenuOpen} 
-  onClose={closeSideMenu}
-  onAddToCart={goToCart}
-  onDelete={handleDeleteFromCart}
-  onIncreaseQuantity={handleIncreaseQuantity}
-  onDecreaseQuantity={handleDecreaseQuantity}
-  totalPrice={calculateTotalPrice()}
-/>
+          products={cartItems}
+          isOpen={isSideMenuOpen}
+          onClose={closeSideMenu}
+          onAddToCart={goToCart}
+          onDelete={handleDeleteFromCart}
+          onIncreaseQuantity={handleIncreaseQuantity}
+          onDecreaseQuantity={handleDecreaseQuantity}
+          totalPrice={calculateTotalPrice()}
+        />
       </div>
     </>
   );

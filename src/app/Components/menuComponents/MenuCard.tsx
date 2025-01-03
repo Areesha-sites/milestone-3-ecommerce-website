@@ -46,7 +46,7 @@ const MenuCard = ({
   const handleAddToCart = (product: Product) => {
     const updatedCart = [...cartItems];
     const existingProductIndex = updatedCart.findIndex(
-      (item) => item.id === product.id  // Use id for comparison
+      (item) => item.id === product.id 
     );
   
     if (existingProductIndex >= 0) {
