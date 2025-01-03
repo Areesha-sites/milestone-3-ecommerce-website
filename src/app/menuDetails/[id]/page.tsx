@@ -56,7 +56,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
     }
   };
   const { id } = params;
-  const product = menuData.find((item: any) => item.id === id);
+  const product = menuData.find((item: Product) => item.id === id);
   if (!product) {
     return (
       <div className="bg-black w-full py-28 h-auto pt-52 px-14 text-white">
