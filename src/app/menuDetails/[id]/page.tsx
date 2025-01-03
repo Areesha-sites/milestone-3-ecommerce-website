@@ -65,7 +65,7 @@ const MenuDetails: React.FC<Props> = ({ params }) => {
             404
           </h1>
           <h1 className="uppercase text-[38px] font-bold font-poppins w-[600px] mx-auto text-center leading-[50px]">
-            This Page Doesn't Exist.
+            This Page Does not Exist.
           </h1>
           <div className="border-b-[4px] w-[100px] border-btnBackground"></div>
           <p className="text-white/70 text-[14px] font-roboto font-normal w-[800px] text-center">
